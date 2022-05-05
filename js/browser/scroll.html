@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="child">child</div>
+    </div>
+    <script>
+        const ele =  document.querySelector('#container');
+        console.log(ele);
+        const offsetWidth = ele.offsetWidth;
+        console.log('offsetWidth----', offsetWidth);
+        const offsetHeight = ele.offsetHeight;
+        console.log('offsetHeight----', offsetHeight);
+        const offsetTop = ele.offsetTop;
+        console.log('offsetTop----', offsetTop);
+
+    </script>
+    <style>
+        .container { 
+            height: 200px;
+            width: 200px;
+            border: 5px solid #fdf;
+            margin-left: 20px;
+            margin-top: 20px;
+            background: yellow;
+        }
+    </style>
+</body>
+</html>

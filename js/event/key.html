@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        按多个按键 同时松开 可以检测到多个keyup值 （测试了2个按键）
+    </p>
+    <input id="input-value" value="" name="username" type="text"/>
+    
+    <script>
+        const ele = document.getElementById("input-value");
+        ele.addEventListener("keydown", (event) => {
+            console.log('keydown', event.keyCode);
+        })
+        ele.addEventListener("keypress", (event) => {
+            console.log('keypress', event.keyCode);
+        })
+        ele.addEventListener("keyup", (event) => {
+            console.log('keyup', event.keyCode);
+        })
+    </script>
+</body>
+</html>

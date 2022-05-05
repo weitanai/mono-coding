@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其作用域链被扩展 </title>
+</head>
+<body>
+    <p>
+        在这个函数中，document 和元素自身的成员都可以被当成局部变量来访问
+    </p>
+    <form>
+        <input name="username" value="">
+        <input type="button" value="button" onclick="console.log(username)">
+    </form>
+</body>
+</html>

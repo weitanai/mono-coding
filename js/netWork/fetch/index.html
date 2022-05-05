@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>how to use fetch api</div>
+    <script>
+        fetch('http://127.0.0.1:14008').then(response => {
+            const body = response.body;
+            console.log(body);
+            response.text().then((res) => console.log('----- text', res));
+            const reader = response.body.getReader();
+            console.log(reader);
+            let responseText;
+            const stream = new ReadableStream({
+                start(controller) {
+                    // 下面的函数处理每个数据块
+                    function push() {
+                        // "done"是一个布尔型，"value"是一个Uint8Array
+                        reader.read().then(({ done, value }) => {
+                            // 判断是否还有可读的数据？
+                            if (done) {
+                                // 告诉浏览器已经结束数据发送
+                                controller.close();
+                                return;
+                            }
+
+                            // 取得数据并将它通过controller发送给浏览器
+                            console.log("value", value);
+                            var enc = new TextDecoder("utf-8");
+                            console.log("value", enc.decode(value));
+                            controller.enqueue(value);
+                            responseText = enc.decode(value);
+                            push();
+                        });
+                    };
+
+                    push();
+                }
+            });
+            return new Response(stream, { headers: { "Content-Type": "text/html" } })
+        })
+    </script>
+</body>
+
+</html>

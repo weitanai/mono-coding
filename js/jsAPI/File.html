@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>file api use get file message</p>
+    <input id="file-api" type="file" />
+    <div id = "out-wrap">output parent</div>
+    <script>
+        const fileEle = document.getElementById('file-api');
+        fileEle.addEventListener('change', event =>{
+            console.log(event.target.files,'---');
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.readAsText(file);
+            let html;
+            reader.onload = ()=>{
+                html = reader.result;
+                console.log('reader---', reader, typeof reader.result);
+                const outputWrap = document.getElementById('out-wrap')
+                console.log(outputWrap,'output');
+                outputWrap.innerHTML = html.substr(0, 9);
+            }
+          
+        })
+    </script>
+    
+</body>
+</html>
