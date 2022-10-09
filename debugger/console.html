@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>console log debugger for chrome devtools</div>
+    <div>
+        <button  class="cus-console"> console.log
+        </button>
+    </div>
+    <div >
+        <button class="cus-warn"> console.warn
+        </button>
+    </div>
+    <div class="cus-error">
+        <button> console.error</button>
+    </div>
+    <script>
+        const ele = document.querySelector('.cus-console');
+        ele.addEventListener('click', () => console.log('----'));
+
+        const eleWarn = document.querySelector('.cus-warn');
+        eleWarn.addEventListener('click', () => console.warn('----warn'));
+    </script>
+</body>
+
+</html>

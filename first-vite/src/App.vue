@@ -1,11 +1,41 @@
-<script setup>
+<script>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import FirstSlot from './components/SlotApi/FirstSlot.vue'
+import Swipper from './components/Swipper.vue';
+import {getData, postData} from './api';
+
+export default {
+  data() {
+    return {
+      message: ''
+    }
+  },
+  components: {
+    Swipper
+  },
+  // methods: {
+  //   get(url){
+  //     getData(url);
+  //   },
+  //   post(url) {
+  //     const mockParams = {
+  //       mock: 'data',
+  //       parmas: this.message
+  //     };
+  //     postData('/create' , mockParams);
+  //   }
+  // },
+}
+
+
 </script>
 
 <template>
-  <FirstSlot action="hello"> </FirstSlot>
+    <!-- <div>{{message}}</div>
+    <button @click="get(`/get?msg=${ encodeURIComponent(message)}`)">get Data</button>
+    <button @click="post">posts Data</button> -->
+    <Swipper/>
+    <router-view></router-view>
 </template>
 
 <style>

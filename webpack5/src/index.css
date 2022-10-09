@@ -1,0 +1,5 @@
+@import './testImport.css';
+
+.hello {
+    background: red;
+}
