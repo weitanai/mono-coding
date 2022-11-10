@@ -5,8 +5,13 @@ const Controller = require('egg').Controller;
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
-    console.log('get ------', ctx.query);
-    ctx.redirect('http://localhost:8081/about');
+    console.log('get ------', ctx.cookies.get('userId'));z
+    if (!ctx.session.user) {
+      ctx.session = {
+        userId: 135,
+      };
+    }
+    ctx.body= 'hello world'
   };
   create() {
     const {ctx} = this;

@@ -4,7 +4,7 @@
     <title>css阻塞</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_zck90zmlh7hf47vi.woff">
   </head>
   <body>
       <script type="module">
@@ -12,15 +12,23 @@
       </script>
       <style>
           
-        .dog{
+        .dog> span{
               border: 1px solid red;
               color: red;
           }
       </style>
-      <!-- <div class="dog">
+      <div class="dog">
         Hi&nbsp;&nbsp;,
         This   is a incomprehensibilities long word.
-            <div>hello dog</div>
-      </div> -->
+            <div>hello dog
+              <span>hello span</span>
+            </div>
+      </div>
+      <script type="text/javascript">
+        console.log(location);
+        const h = location.search.substring(1);
+        console.log(h);
+      </script>
+      <div>
   </body>
 </html>

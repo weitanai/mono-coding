@@ -204,9 +204,10 @@
 // })
 // p.then(res=>console.log(res));
   
-const f = require('./test.js');
+// const f = require('./test.js');
 
-console.log('before--', f.obj);
+// console.log('before--', f.obj);
 
-f.hello();
-console.log('after--', f.obj)
+// f.hello();
+// console.log('after--', f.obj)
+

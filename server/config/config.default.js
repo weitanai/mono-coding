@@ -34,6 +34,10 @@ module.exports = appInfo => {
     origin:'*',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
+  config.session = {
+    key: 'server:sess',
+    maxAge: 24 * 60 * 60 * 1000,
+  };
 
   return {
     ...config,

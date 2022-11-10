@@ -13,27 +13,27 @@ export default {
   components: {
     Swipper
   },
-  // methods: {
-  //   get(url){
-  //     getData(url);
-  //   },
-  //   post(url) {
-  //     const mockParams = {
-  //       mock: 'data',
-  //       parmas: this.message
-  //     };
-  //     postData('/create' , mockParams);
-  //   }
-  // },
+  methods: {
+    get(url){
+      getData(url).then(res=>console.log(res));
+    },
+    post(url) {
+      const mockParams = {
+        mock: 'data',
+        parmas: this.message
+      };
+      postData('/create' , mockParams);
+    }
+  },
 }
 
 
 </script>
 
 <template>
-    <!-- <div>{{message}}</div>
-    <button @click="get(`/get?msg=${ encodeURIComponent(message)}`)">get Data</button>
-    <button @click="post">posts Data</button> -->
+    <div>{{message}}</div>
+    <button @click="get(`/get?key=<script>alert('XSS');</script>`)">get Data</button>
+    <button @click="post">posts Data</button>
     <Swipper/>
     <router-view></router-view>
 </template>

@@ -1,3 +1,5 @@
+'use strict';
+
 // const syb = Symbol(1);
 
 // const obj = {
@@ -122,14 +124,14 @@
 // //     obj: obj,
 // //     hello
 // // }
-class EventEmitter{
-    constructor(){
+class EventEmitter {
+    constructor() {
         this._events = {};
     }
     // 可以on多个函数
-    on(eventName, callback){
-        if(this._events[eventName]){
-            if(this.eventName !== "newListener"){
+    on(eventName, callback) {
+        if (this._events[eventName]) {
+            if (this.eventName !== "newListener") {
                 this.emit("newListener", eventName)
             }
         }
@@ -138,20 +140,20 @@ class EventEmitter{
         this._events[eventName] = callbacks
     }
 
-    emit(eventName, ...args){
+    emit(eventName, ...args) {
         const callbacks = this._events[eventName] || [];
         callbacks.forEach(cb => cb(...args));
     }
     // how to use this,  make a once function, push in  function arr , add then  filter function
-    once(eventName, callback){
-        const one = (...args)=>{
+    once(eventName, callback) {
+        const one = (...args) => {
             callback(...args)
             this.off(eventName, one)
         }
         one.initialCallback = callback;
         this.on(eventName, one)
     }
-    off(eventName, callback){
+    off(eventName, callback) {
         const callbacks = this._events[eventName] || []
         const newCallbacks = callbacks.filter(fn => fn != callback && fn.initialCallback != callback /* 用于once的取消订阅 */)
         this._events[eventName] = newCallbacks;
@@ -159,26 +161,115 @@ class EventEmitter{
 }
 
 
-function new_instance_of(leftVaule, rightVaule) { 
-    let rightProto = rightVaule.prototype; // 取右表达式的 prototype 值
-    leftVaule = leftVaule.__proto__; // 取左表达式的__proto__值
-    while (true) {
-    	if (leftVaule === null) {
-            return false;	
-        }
-        if (leftVaule === rightProto) {
-            return true;	
-        } 
-        leftVaule = leftVaule.__proto__ 
-    }
-} 
+// function new_instance_of(leftVaule, rightVaule) { 
+//     let rightProto = rightVaule.prototype; // 取右表达式的 prototype 值
+//     leftVaule = leftVaule.__proto__; // 取左表达式的__proto__值
+//     while (true) {
+//     	if (leftVaule === null) {
+//             return false;	
+//         }
+//         if (leftVaule === rightProto) {
+//             return true;	
+//         } 
+//         leftVaule = leftVaule.__proto__ 
+//     }
+// } 
 
-const regValue = /rotate\((.*)deg\)/
+// const regValue = /rotate\((.*)deg\)/
 
-const formData = new FormData();
-formData.append('hello', 'daog')
+// const formData = new FormData();
+// formData.append('hello', 'daog')
 
-console.log(formData)
+// console.log(formData)
 
 
 
+
+// custom new;
+// function newP(fn, ...arg) {
+//     const obj = Object.create(fn.prototype);
+//     console.log('first create obj', obj);
+//     const res = fn.apply(obj, arg);
+//     return res instanceof Object ? res : obj;
+//   }
+//   function Ttest(name) {
+//     this.name = name;
+//   }
+//   const t = new Ttest('ye');
+
+//   console.log(t, t.name)
+
+//   const nT = newP(Ttest, 'hello my new test');
+//   console.log(nT); 
+
+
+// use strict;
+
+
+// function curry(fn) {
+//     return function curried(...args) {
+//         console.log(fn.length, '----');
+//         if(args.length >= fn.fflength) {
+//             return fn.apply(this, args);
+//         } else {
+//             return function(...arg2) {
+//                 return curried.apply(this, args.concat(arg2));
+//             }
+//         }
+//     }
+// }
+
+// function sum1(a , b, c) {
+//     return  a+b+c;
+// }
+// const res = curry(sum1);
+
+// const a = res(1)(3)(2);
+// console.log(a)
+// const arr = [1, 2, 3, 4, 5];
+
+// function doAsync(time, cb) {
+// 	if (cb) {
+// 		setTimeout(cb, time);
+// 	} else {
+// 		return new Promise(resolve => {
+// 			setTimeout(resolve, time);
+// 		});
+// 	}
+// }
+
+// function print(el) {
+// 	return function() {
+// 		console.log(el);
+// 	};
+// }
+// console.time("promise all in");
+// Promise.all(
+// 	arr.map(item => {
+// 		return doAsync(item * 100).then(print(`${item}-promise`));
+// 	})
+// ).then(() => {
+// 	console.timeEnd("promise all in");
+// });
+
+// console.log('Script开始')
+// setTimeout(() => {
+//   console.log('第一个回调函数，宏任务1')
+//   Promise.resolve().then(function() {
+//     console.log('第四个回调函数，微任务2')
+//   })
+// }, 0)
+// setTimeout(() => {
+//   console.log('第二个回调函数，宏任务2')
+//   Promise.resolve().then(function() {
+//     console.log('第五个回调函数，微任务3')
+//   })
+// }, 0)
+// Promise.resolve().then(function() {
+//   console.log('第三个回调函数，微任务1')
+// })
+// console.log('Script结束')
+
+
+const arr= Array.from(10);
+console.log(arr) 
