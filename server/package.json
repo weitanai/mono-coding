@@ -1,0 +1,61 @@
+jp{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "egg": {
+    "declarations": true
+  },
+  "dependencies": {
+    "egg": "^2",
+    "egg-cluster": "^2.0.0",
+    "egg-cors": "^2.2.3",
+    "egg-scripts": "^2",
+    "egg-sequelize": "^6.0.0",
+    "egg-sequelize-auto": "^0.1.1",
+    "egg-validate": "^2.0.2",
+    "egg-view-assets": "^1.8.0",
+    "egg-view-ejs": "^3.0.0",
+    "egg-view-nunjucks": "^2.3.0",
+    "joi": "^17.7.0",
+    "koa-context-validator": "^1.0.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.25.5",
+    "typescript": "^4.9.3"
+  },
+  "devDependencies": {
+    "autod": "^3",
+    "autod-egg": "^1",
+    "egg-bin": "^4",
+    "egg-ci": "^2",
+    "egg-mock": "^4",
+    "eslint": "^8",
+    "eslint-config-egg": "^12"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon  --title=egg-server-server",
+    "stop": "egg-scripts stop --title=egg-server-server",
+    "dev": "egg-bin dev --port=14030",
+    "debug": "egg-bin debug",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod",
+    "models": "egg-sequelize-auto -o ./app/model -d first -h localhost -u root  -x 987346 -e mysql"
+  },
+  "ci": {
+    "version": "16",
+    "type": "github"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT"
+}

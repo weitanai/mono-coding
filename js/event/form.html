@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="postData">
+        <input id="editor" />
+        <input type="submit"/>
+        <input type="reset"/>
+    </form>
+    <script>
+        const formEle = document.getElementById("postData");
+        const inputEle = document.getElementById("editor");
+        inputEle.addEventListener("keypress", (e)=>{
+            console.log(e);
+            e.preventDefault();
+        })
+        formEle.addEventListener("submit", (e)=> {
+            console.log(e);
+            e.preventDefault();
+        })
+        formEle.addEventListener("reset", (e)=> {
+            console.log(e);
+            e.preventDefault();
+        })
+    </script>    
+</body>
+</html>

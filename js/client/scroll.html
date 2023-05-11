@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>learn scroll in browser behavior</p>
+    <style>
+        .container {
+            height: 200px;
+            width: 200px;
+            background: yellow;
+            padding: 20px;
+            border: 10px solid black;
+            margin: 0 auto;
+            overflow: auto;
+        }
+        .inner {
+            height: 1000px;
+        }
+    </style>
+    <div class="container">
+        <div class="inner">inner container</div>
+    </div>
+    <script>
+        const containerEle = document.querySelector('.container');
+        const innerEle = document.querySelector('.inner');
+        containerEle.addEventListener('scroll', ()=>{
+            const scrollTop = containerEle.scrollTop;
+            const clientHeight = containerEle.clientHeight;
+            const scrollHeight = containerEle.scrollHeight;
+            if (scrollTop + clientHeight >= scrollHeight) {
+                console.log('----- is end')
+            }
+            if (scrollTop === 0) {
+                console.log('is top');
+            }
+        })
+    </script>    
+</body>
+</html>

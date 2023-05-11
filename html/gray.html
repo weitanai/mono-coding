@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="toggle-gray">toggle gray</button>
+    <ul class="container">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <style>
+        .toggle-gray {
+            height: 40px;
+            width: 100px;
+            margin: 30px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .container li {
+            list-style: none;
+            width: 300px;
+            background: yellowgreen;
+            height: 300px;
+            margin: 20px;
+            line-height: 300px;
+            text-align: center;
+            box-shadow: 2px 2px 8px 2px #158215;
+        }
+    </style>
+    <script>
+        let style = document.createElement('style');
+        let graySelector = 'gray-filter';
+        style.setAttribute('type', 'text/css');
+        style.textContent = `.${graySelector}{
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            -ms-filter: grayscale(100%);
+            -o-filter: grayscale(100%);
+            filter: grayscale(100%);
+            filter: gray;
+            filter: progid:dximagetransform.microsoft.basicimage(grayscale=1);
+
+        }`
+        document.head.appendChild(style);
+        
+        const root = document.querySelector('html');
+        const btnEle = document.querySelector('.toggle-gray');
+        btnEle && btnEle.addEventListener('click', ()=> {
+            toggleClassName(root, graySelector);
+        });
+        function toggleClassName(el, name) {
+            if (el.classList.contains(name)) {
+                el.classList.remove(name)
+            } else {
+                el.classList.add(name)
+            }
+        }
+
+        
+    </script>
+</body>
+
+</html>

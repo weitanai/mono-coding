@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="father" onclick="return false">
+        在文本上按下鼠标按钮并移动 —— 选中文本。
+        如果我们使用 JavaScript 处理一个事件，那么我们通常不希望发生相应的浏览器行为。而是想要实现其他行为进行替代。
+
+        阻止浏览器行为
+        有两种方式来告诉浏览器我们不希望它执行默认行为：
+        <a id="child" >
+            child
+        </a>
+
+    </div>
+    <script>
+        // const id = document.querySelector('#father');
+        // id.addEventListener('click', () => {
+        //     console.log('father click')
+        // })
+
+        // const child = document.querySelector('#child');
+        // child.addEventListener('click', () => {
+        //     console.log('child click')
+        //     child.hidden = true;
+        // })
+        child.addEventListener('click', () => {
+            console.log('child click again')
+        },)
+    </script>
+
+</body>
+
+</html>

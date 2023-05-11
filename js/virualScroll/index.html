@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <a href="https://github.com/dwqs/blog/issues/70">source code</a>
+</head>
+
+<body>
+    <div class="scrollContainer">
+
+    </div>
+    <script type="text/javascript">
+        let startIndex = 0;
+        let endIndex = 0;
+        let source = new Array(1000).keys();
+        let data = Array.from(source);
+
+        let height = 60;
+        let bufferSize = 5;
+        let endOffset = (data.length - endIndex) * height;
+        let visibleData = [];
+        let visibleCount = Math.ceil(window.innerHeight / height) + bufferSize;
+
+        function updateVisibleData(scrollTop) {
+            endIndex = startIndex + visibleCount;
+            visibleData = data.slice(startIndex, endIndex);
+        }
+        let doc = '';
+        let scrollTopG = '';
+
+        const cache = [];
+        let anchorItem = {
+            index: 0,
+            top: 0,
+            bottom: 0,
+        }
+
+        function cachePosition(node, index) {
+            const rect = node.getBoundingClientRect();
+            const top = rect.top + window.pageYOffset;
+            const hasNode = cache.find(item => item.index === index);
+            if(!hasNode) {
+                cache.push({
+                    index,
+                    top,
+                    bottom: top + height
+                })
+            }
+        }
+
+        function updateBoundaryIndex(scrollTop = 0) {
+            const anchorItemLocal = cache.find(anchorItem => anchorItem.bottom >= scrollTop);
+            if (!anchorItemLocal) {
+                return;
+            }
+            console.log('updateBoundaryIndex--', anchorItemLocal);
+            anchorItem = { ...anchorItemLocal }
+            startIndex = anchorItemLocal.index;
+            endIndex = startIndex + visibleCount;
+        }
+
+
+
+        updateVisibleData();
+
+        const wrapper = document.querySelector('.scrollContainer');
+        function render() {
+            wrapper.innerHTML = null;
+            visibleData.forEach((item, index) => {
+                const objE = document.createElement('div');
+                objE.setAttribute('class', 'scroll-child');
+                objE.innerHTML = `${startIndex + item}`;
+                cachePosition(objE, item);
+                wrapper.appendChild(objE);
+            })
+        }
+
+        function handelScroll() {
+            const scrollTopLocal = wrapper.scrollTop;
+            if (scrollTopG < scrollTopLocal) {
+                updateBoundaryIndex(scrollTopLocal);
+                updateVisibleData();
+            }
+            console.log('scrollTopLocal--', scrollTopLocal, 'scrollTopG---', scrollTopG, visibleData, startIndex, cache);
+            scrollTopG = scrollTopLocal;
+            render()
+        }
+        wrapper.addEventListener('scroll', handelScroll);
+
+        render();
+    </script>
+    <style>
+        .scrollContainer {
+            height: 420px;
+            width: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .scroll-child {
+            height: 60px
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            how to use transition
+        </div>
+    </div>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .row {
+            background-color: #e4f0f5;
+            color: #000;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font: 1em monospace;
+            width: 100%;
+            transition: margin-right ease 4s 0s;
+        }
+
+        div:hover {
+            margin-right: 200px;
+        }
+    </style>
+</body>
+
+</html>

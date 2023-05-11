@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        select.options —— option 的子元素的集合，
+        <br>
+        select.value —— 当前所选择的 option 的 value，
+        <br>
+        select.selectedIndex —— 当前所选择的 option 的编号。
+    </p>
+    <form action="">
+        <input type="text" name="age">
+        <input name="name" value="hello">
+    </form>
+
+    <select id="select" multiple>
+        <option value="apple" selected>Apple</option>
+        <option value="pear">Pear</option>
+        <option value="banana">Banana</option>
+    </select>
+
+    <script>
+        // 下面这三行做的都是同一件事
+
+        //     let selected = Array.from(select.options)
+        // .filter(option => option.selected)
+        // .map(option => option.value);
+        // console.log(selected, )
+        // 请注意：选项编号是从零开始的，所以编号 2 表示的是第三项
+
+        let selectedOpt = select.options[select.selectedIndex];
+        console.log(selectedOpt)
+        let newOpt = new Option('text', 'dodd');
+        select.append(newOpt);
+        select.value = 'pear'
+        newOpt.selected = true;
+    </script>
+    <script>
+        console.log(document.forms[0].age)
+    </script>
+</body>
+
+</html>

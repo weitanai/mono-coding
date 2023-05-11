@@ -1,0 +1,15 @@
+.user-liset-wrapper {
+    padding: 30px;
+}
+.user-avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.row-action {
+    color: rgb(11, 11, 179);
+}
+.row-modify {
+    margin-right: 12px;
+}

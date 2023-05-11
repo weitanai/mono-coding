@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>如何渲染10000条数据在dom节点上</title>
+</head>
+
+<body>
+    <ul id="root">
+
+        </div>
+        <!-- <script>
+            function createOneHundredThousandData() {
+                let arr = [];
+                for (let i = 0; i < 100000; i++) {
+                    arr.push({
+                        key: i
+                    })
+                }
+                return arr;
+            }
+            var beginTime = performance.now();
+            console.log('beginTime', beginTime);
+            let h = [];
+            let data = createOneHundredThousandData()
+            let count = 0;
+            let totalLoop = 1000;// 渲染1000
+            function animatonCb() {
+                let partialData = data.splice(0, 100); // 用数组的splice方法，截取后并修改原数组
+                for (let i = 0; i < 100 && partialData.length >= 1; i++) {
+                    let li = document.createElement('li');
+                    // console.log('partialData[i].key',partialData[i].key);
+                    li.textContent = partialData[i].key;
+                    document.getElementById('root').appendChild(li);
+                }
+                if (count < totalLoop) {
+                    count++;
+                    requestAnimationFrame(animatonCb)
+                }
+            }
+            requestAnimationFrame(animatonCb);
+            // 写法2 数组自带的map方法
+            // h = data.map((item,index)=>'<li>' + '<img src="'+ item.imgUrl +'" \/>'+ 'current index ' + item.key + '<\/li>');
+            document.addEventListener('DOMContentLoaded', function () {
+                var endTime = performance.now();
+                console.log('DOMContentLoaded endTime', endTime);
+                var total = ((endTime - beginTime) / 1000).toFixed(5);
+                console.log('DOMContentLoaded render 100000 items takes ' + total + ' 秒');
+            });
+            window.onload = function () {
+                var endTime = performance.now();
+                console.log('window.onload endTime', endTime);
+                var total = ((endTime - beginTime) / 1000).toFixed(5);
+                console.log('window.onload render 100000 items takes ' + total + ' 秒');
+            }
+        </script> -->
+
+        <script>
+            var beginTime = performance.now();
+
+            function createOneHundredThousandData() {
+                let arr = [];
+                for (let i = 0; i < 100000; i++) {
+                    arr.push({
+                        key: i
+                    })
+                }
+                return arr;
+            }
+            console.log('beginTime', beginTime);
+            let h = [];
+            let data = createOneHundredThousandData();
+            const fragment = document.createDocumentFragment();
+
+            for (let i of data) {
+                const li = document.createElement('li');
+                li.textContent = i.key;
+                fragment.appendChild(li);
+            }
+            document.body.appendChild(fragment);
+            document.addEventListener('DOMContentLoaded', function () {
+                var endTime = performance.now();
+                console.log('DOMContentLoaded endTime', endTime);
+                var total = ((endTime - beginTime) / 1000).toFixed(5);
+                console.log('DOMContentLoaded render 100000 items takes ' + total + ' 秒');
+            });
+            window.onload = function () {
+                var endTime = performance.now();
+                console.log('window.onload endTime', endTime);
+                var total = ((endTime - beginTime) / 1000).toFixed(5);
+                console.log('window.onload render 100000 items takes ' + total + ' 秒');
+            }
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="data-list"></ul>
+    <script>
+        let data = {
+            Fish: {
+                trout: {},
+                salmon: {}
+            },
+
+            Tree: {
+                Huge: {
+                    sequoia: {},
+                    oak: {}
+                },
+                Flowering: {
+                    appleTree: {},
+                    magnolia: {}
+                }
+            }
+        };
+        
+        const ulEle = document.querySelector('.data-list');
+        let globlCall = 0;
+        function createLi(obj, parent, count) {
+            console.log(Object.keys(obj).length, '--')
+            if(typeof obj !== 'object' || Object.keys(obj).length === 0) return;
+            globlCall+=1;
+            for(let [key, value] of Object.entries(obj)) {
+                const res = [];
+                const liEle = document.createElement('li');
+                liEle.textContent = key;
+                liEle.style.marginLeft = count*8 + 'px'
+                parent.append(liEle);
+                if (Object.keys(value).length > 0){
+                    createLi(value, liEle, count+1);
+                };
+            }
+
+        }
+        const res = createLi(data, ulEle, 0);
+        console.log(res);
+    </script>
+</body>
+
+</html>

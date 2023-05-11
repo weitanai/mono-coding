@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="child" id="animate"></div>
+    </div>
+    <style>
+        .container {
+            border: 1px solid #ccc;
+        }
+        .child { 
+            width: 50px;
+            height: 50px;
+            background: yellow;
+        }
+    </style>
+    <script>
+        const element = document.getElementById('animate');
+        let start, previousTimeStamp;
+        let done = false
+
+        function step(timestamp) {
+            if (start === undefined) {
+                start = timestamp;
+            }
+            const elapsed = timestamp - start;
+
+            if (previousTimeStamp !== timestamp) {
+                // 这里使用 `Math.min()` 确保元素刚好停在 200px 的位置。
+                const count = Math.min(0.1 * elapsed, 600);
+                element.style.transform = 'translateX(' + count + 'px)';
+                if (count === 200) done = true;
+            }
+
+            if (elapsed < 8000) { // 在两秒后停止动画
+                previousTimeStamp = timestamp;
+                if (!done) {
+                    window.requestAnimationFrame(step);
+                }
+            }
+        }
+
+        window.requestAnimationFrame(step);
+
+    </script>
+
+</body>
+
+</html>

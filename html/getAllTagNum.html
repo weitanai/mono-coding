@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--<div>comment</div>  -->
+    <div>
+        1
+        <span>1span</span>
+        <p>ppp</p>
+        <li>li</li>
+        <!-- <div>
+            2
+            <span>1span</span>
+            <p>ppp</p>
+            <li>li</li>
+        </div> -->
+    </div>
+
+
+    <div>
+        3
+        <span>1span</span>
+        <p>ppp</p>
+        <li>li</li>
+    </div>
+    <div>
+        4
+        <span>1span</span>
+        <p>ppp</p>
+        <li>li</li>
+    </div>
+    <div>
+        5
+        <span>1span</span>
+        <p>ppp</p>
+        <li>li</li>
+    </div>
+    <script>
+        // const allTags = document.querySelectorAll('*')
+        // console.log(allTags)
+        // const tagsTimes = [];
+        // for(let item of allTags) {
+        //     console.log(item.tagName, tagsTimes[item.tagName]);
+        //     // tagsTimes[item.tagName] = tagsTimes[item.tagName] ? tagsTimes[item.tagName] + 1 : 1;
+        //     tagsTimes[item.tagName] =( tagsTimes[item.tagName] || 0) + 1;
+        // }
+        // console.log('Object.entries(tagsTimes)', Object.entries(tagsTimes))
+        // const res = Object.entries(tagsTimes).sort((a, b)=> b[1] - a[1]);
+        // console.log(res)
+        const rootHtml = document.querySelector('html');
+        console.log(rootHtml, typeof rootHtml == Element);
+        const tagsTimes = {};
+        function bfs(el) {
+            if (typeof el !== 'object' ) return;
+            console.log(el.children, el.children.length, 'childNodes----')
+            console.log(el.children);
+            for (item of el.children) {
+                console.log(item.tagName, '--')
+                if (item.tagName) {
+                    tagsTimes[item.tagName] = (tagsTimes[item.tagName] || 0) + 1;
+                    if (item.childNodes.length > 0) {
+                        bfs(item);
+                    }
+                }
+            }
+        }
+
+        bfs(rootHtml);
+        console.log(tagsTimes, '---')
+    </script>
+</body>
+
+</html>

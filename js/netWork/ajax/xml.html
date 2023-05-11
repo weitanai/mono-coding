@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>ajax request</div>
+    <script>
+        function getXml() {
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                console.log('xhr status', xhr.status)
+                if((xhr.status >= 200 && xhr.status <300) || xhr.status === 304){
+                    console.log('---- ', xhr);
+                }else{
+                    console.log('---- error', xhr.status);
+                }
+            }
+            xhr.open('GET', 'http://127.0.0.1:5500/', false);
+            // XMLHttpRequest Level 2  timeout 一定要异步使用
+            // xhr.timeout = 1000;
+            console.log('here- ')
+            xhr.send(null);
+        }
+        getXml();
+    </script>
+    
+</body>
+</html>

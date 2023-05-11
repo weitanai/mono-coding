@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> li 与 li 之间有看不见的空白间隔是什么原因引起的？如何解决？</title>
+</head>
+<body>
+    <h1> li 与 li 之间有看不见的空白间隔是什么原因引起的？如何解决？</h1>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <style>
+        li {
+            list-style: none;
+            height: 20px;
+        }
+        li:nth-child(2) {
+            background: yellow;
+            margin: 0 0 20px;
+        }
+        li:nth-child(2)::after {
+            display: block;
+            content: '';
+            height: 10px;
+            background: greenyellow;
+        }
+        li:nth-child(3) {
+            background: red;
+            margin: 20px 0 0;
+        }
+    </style>
+    <script>
+        console.log(top)
+    </script>
+</body>
+</html>

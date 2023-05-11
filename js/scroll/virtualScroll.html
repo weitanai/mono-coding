@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="scorll-container">
+        <div class="container">
+            <div class="child-container">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const list = Array.from(Array(10000), (item, index)=> index);
+        const containerHeight = 600;
+        const itemHeight = 20;
+        const count = Math.floor(containerHeight / itemHeight);
+
+        const scrollC = document.querySelector('.scorll-container');
+        function render (start=0, scrollTop = 0) {
+            const subList = list.slice(start, start + count);
+            const innerEle = document.querySelector('.child-container');
+            innerEle.innerHTML = null;
+            innerEle.style.top = scrollTop + 'px';
+            for(let i = 0; i < subList.length; i++) {
+                console.log(subList[i])
+                const ele = document.createElement('div');
+                ele.style.height = itemHeight + 'px';
+                ele.innerHTML = subList[i];
+                innerEle.appendChild(ele);
+            }
+
+        }
+        render();
+        scrollC.addEventListener('scroll',(event)=>{
+            console.log(event.target.scrollTop);
+            const scrollTop = event.target.scrollTop;
+            const start  = Math.floor(scrollTop / itemHeight);
+            render(start, scrollTop);
+        })
+    </script>
+    <style>
+        .scorll-container {
+            height:  600px;
+            width: 600px;
+            overflow: auto;
+            position: relative;
+        }
+        .container {
+            height: 60000px;
+        }
+        .child-container {
+            background: yellowgreen;
+            position: absolute;
+        }
+    </style>
+</body>
+</html>

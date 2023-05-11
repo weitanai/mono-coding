@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript 沙盒</title>
+  <!-- 加载 Ace 编辑器库文件 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+</head>
+<body>
+  <!-- 创建 Ace 编辑器实例 -->
+  <div id="editor"></div>
+
+  <!-- 添加运行按钮和输出框 -->
+  <button id="run">运行</button>
+  <div id="output"></div>
+
+  <script>
+    // 获取 Ace 编辑器实例
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setMode("ace/mode/javascript");
+
+    // 获取运行按钮和输出框
+    var runButton = document.getElementById("run");
+    var output = document.getElementById("output");
+
+    // 添加运行按钮的点击事件
+    runButton.addEventListener("click", function() {
+      // 获取输入的代码
+      var code = editor.getValue();
+
+      // 创建沙盒环境
+      var sandbox = {};
+      sandbox.console = console;
+      sandbox.alert = alert;
+
+      // 运行代码
+      try {
+        var result = eval.call(sandbox, code);
+        output.innerHTML = result;
+      } catch (e) {
+        output.innerHTML = e.message;
+      }
+    });
+  </script>
+</body>
+</html>

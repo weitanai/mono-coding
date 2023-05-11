@@ -1,0 +1,13 @@
+/node_modules
+/.env.local
+/.umirc.local.ts
+/dist
+**/node_modules
+
+/**/dist
+/**/node_modules
+
+question.md
+
+review.md
+

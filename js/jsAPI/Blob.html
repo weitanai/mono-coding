@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>blob use</p>
+    <input type="file" id="blob-read">
+    <div id="img-wrap"></div>
+    <a id="h">点此进行下载</a>
+    <input type="file" id='f' />
+    <!-- js部分 -->
+    <script>
+        var blob = new Blob(["Hello World"]);
+        var url = window.URL.createObjectURL(blob);
+        var a = document.getElementById("h");
+        a.download = "helloworld.txt";
+        a.href = url;
+
+        function upload(blob) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://localhost:3003/blob', true);
+            xhr.setRequestHeader('Content-Type', 'text/plain')
+            xhr.send(blob);
+        }
+
+        document.getElementById('f').addEventListener('change', function (e) {
+            var blob = this.files[0];
+            const CHUNK_SIZE = 20; 
+            const SIZE = blob.size;
+            var start = 0;
+            var end = CHUNK_SIZE;
+            while (start < SIZE) {
+                upload(blob.slice(start, end));
+                start = end;
+                end = start + CHUNK_SIZE;
+            }
+        }, false);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="img-wrapper">
+        <div >
+            <img id="gallery-img" src="" alt="">
+        </div>
+        <div>
+            <img src="../../assets/first.jpeg" alt="first">
+            <img src="../../assets/second.jpeg" alt="second.jpeg">
+            <img src="../../assets/third.jpeg" alt="third.jpeg">
+        </div>
+    </div>
+    <script>
+        const imgWrapper = document.querySelector('#img-wrapper');
+        imgWrapper.addEventListener('click', (e)=>{
+            console.log(e.target.closest('img'));
+            const src = e.target.getAttribute('src');
+            const gallery = document.querySelector('#gallery-img');
+            gallery.setAttribute('src', src);
+        })
+        const gallery = document.querySelector('#gallery-img');
+        gallery.setAttribute('src', '../../assets/first.jpeg');
+    </script>
+    <style>
+        #gallery-img {
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+    
+</body>
+</html>

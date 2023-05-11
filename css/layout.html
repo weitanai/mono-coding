@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="middle">middle</div>
+
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+    <div class="ver">
+        <span class="sv">vertical </span>
+    </div>
+    <style>
+        .ver {
+            height: 50px;
+        }
+        .sv {
+            vertical-align: center;
+        }
+    </style>
+    <!-- <style>
+        .container {
+            height: 200px;
+        }
+        .left {
+            background: yellow;
+            width: 200px;
+            float: left;
+        }
+        .right {
+            background:red;
+            margin-left: 200px;
+            width: auto;
+            overflow: hidden;
+        }
+    </style> -->
+    <!-- <style>
+        .container {
+            height: 200px;
+            display: flex;
+        }
+        .left {
+            flex: 1;
+            background: yellow;
+        }
+        .middle {
+            flex: 1;
+            background: green;
+        }
+        .right {
+            background: red;
+            flex: 1 0 200px;
+        }
+    </style> -->
+    <!-- <style>
+        // float
+        .container {
+            height: 200px;
+            overflow: hidden;
+        }
+        .left {
+            float: left;
+            width: 100px;
+            background: yellow;
+        }
+        .middle {
+            float: right;
+            width: 100px;
+            background: green;
+        }
+        .right {
+            margin: 0 100px;
+        }
+    </style> -->
+    <style>
+        .container {
+            padding: 0 220px 0 200px;
+            overflow: hidden;
+        }
+
+        .left,
+        .middle,
+        .right {
+            position: relative;
+            float: left;
+            min-height: 130px;
+            word-break: break-all;
+        }
+
+        .left {
+            margin-left: -100%;
+            left: -200px;
+            width: 200px;
+            background-color: red;
+        }
+
+        .right {
+            margin-left: -220px;
+            right: -220px;
+            width: 220px;
+            background-color: green;
+        }
+
+        .middle {
+            width: 100%;
+            background-color: blue;
+        }
+    </style>
+</body>
+
+</html>

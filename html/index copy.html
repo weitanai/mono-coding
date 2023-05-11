@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .wrap {
+            background-color:red;
+            display: flex;
+            width: 1000px;
+            white-space: normal;
+            flex-wrap: wrap;
+        }
+        .wrap div {
+            min-width: 400px;
+            background: pink;
+        }
+        .inlineEle{
+            background: yellow;
+            vertical-align: middle;
+        }
+        .right{
+            background: pink;
+        }
+        .vertical-use {
+            background: red;
+            font-size: 0; 
+        }
+        .img-ver {
+            height: 400px;
+            width: 400px;
+            /* display: block; */
+            /* vertical-align: middle; */
+        }
+    </style>
+    <div class="wrap">
+        <div class="inlineEle">i am text</div>
+        <div class="right">right</div>
+        <div>hello</div>
+        <div>world</div>
+        <div>hello</div>
+        <div>world</div>
+        <div>hello</div>
+        <div>world</div>
+    </div>
+    <div class="vertical-use">
+        <img class="img-ver" src="./assets//prototype.jpg">
+    </div>
+    
+</body>
+</html>

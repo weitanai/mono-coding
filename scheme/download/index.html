@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>down load file by url</title>
+</head>
+
+<body>
+    <input type="text" name="txt" onchange="myFunction(this.value)">
+
+    <script>
+        // wip : local file upload and download pass by script;
+        // function localFileDownload(path) {
+        //     const uploadFile = document.createElement('input');
+        //     uploadFile.setAttribute('type', 'file');
+        //     uploadFile.onchange = function(e) {
+        //         const file = e.target.files;
+        //         console.log(file);
+        //     }
+        //     uploadFile.onchange();
+        // }
+        
+        function myFunction(path, name='default') {
+            const xhr = new XMLHttpRequest();
+            xhr.open('get', path);
+            xhr.responseType = 'blob';
+            xhr.send();
+            xhr.onload = function () {
+                if (this.status === 200 || this.status === 304) {
+                    // const blob = new Blob([this.response], { type: xhr.getResponseHeader('Content-Type') });
+                    // const url = URL.createObjectURL(blob);
+                    const url = URL.createObjectURL(this.response);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = name;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

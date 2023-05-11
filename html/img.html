@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>file api use get file message</p>
+  <button id="btn-right">rigth</button>
+  <input id="file-api" type="file" multiple />
+  <div id="out-wrap">output parent</div>
+
+  <img src="./assets//prototype.jpg" style="height: 300px; width: 300px">
+  <script>
+    // const fileEle = document.getElementById('file-api');
+    // const outputWrap = document.getElementById('out-wrap')
+
+    // fileEle.addEventListener('change', event => {
+    //   const files = event.target.files;
+    //   for (let i of files) {
+    //     const reader = new FileReader();
+    //     reader.readAsDataURL(i);
+    //     reader.onload = function (e) {
+    //       const image = document.createElement('img');
+    //       console.log(this.result);//取得数据 这里的this指向FileReader（）对象的实例reader
+    //       image.setAttribute("src", this.result)//赋值给img标签让它显示出来 
+    //       image.setAttribute("height", 100)//赋值给img标签让它显示出来 
+    //       outputWrap.appendChild(image);
+
+    //         var current = 0;
+    //         image.onclick = function(){
+    //             current = (current+90)%360;
+    //             this.style.transform = 'rotate('+current+'deg)';
+    //     };
+    //     }
+    //   }
+    // })
+    const btnEle = document.getElementById('btn-right');
+      btnEle.addEventListener("click", ()=>{
+        const ele = document.getElementsByTagName('img')[0];
+        const transform = ele.style.transform;
+        console.log(ele.style.transform, '--');
+        if(!transform) {
+          let current = (-90)%360;
+          ele.style.transform = 'rotate('+current+'deg)';
+        } else {
+          const regValue = /rotate\((.*)deg\)/
+          const value = transform.match(regValue);
+          const v1 = value[1];
+          let current = (-90 + Number(v1))%360;
+                ele.style.transform = 'rotate('+current+'deg)';
+        }
+      })
+  </script>
+</body>
+<div>
+  1 upload img and preview img with
+  2 input multiple to select multi file upload with
+  3 fileReader api readAsDataURL get img base64 formated data:Url;
+</div>
+
+</html>

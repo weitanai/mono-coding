@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./global.css">
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <script>
+        // if (window.performance) {
+        //     let pfEntries = performance.getEntriesByType('paint');
+        //     console.log(pfEntries, '--')
+        //     let fp = pfEntries.find(each => each.name === 'first-paint')
+        //     console.log('first paint time: ', fp && fp.startTime)
+        // }
+        window.onerror = function (message, url, line, col, error) {
+            console.log(`${message}\n At ${line}:${col} of ${url}`);
+        };
+
+        function readData() {
+            console.log(null.a)
+        }
+
+        readData();
+    </script>
+</body>
+
+</html>

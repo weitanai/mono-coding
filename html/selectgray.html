@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="toggle-gray">toggle gray</button>
+    <ul class="container">
+        <li>1</li>
+        <li  class="not-gray1">2</li>
+        <li>3</li>
+        <li class="not-gray">4</li>
+        <li>5</li>
+    </ul>
+    <style>
+        .toggle-gray {
+            height: 40px;
+            width: 100px;
+            margin: 30px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .container li {
+            list-style: none;
+            width: 300px;
+            background: yellowgreen;
+            height: 300px;
+            margin: 20px;
+            line-height: 300px;
+            text-align: center;
+            box-shadow: 2px 2px 8px 2px #158215;
+        }
+    </style>
+    <script>
+        let style = document.createElement('style');
+        let graySelector = 'gray-filter';
+        style.setAttribute('type', 'text/css');
+        style.textContent = `.${graySelector}{
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            -ms-filter: grayscale(100%);
+            -o-filter: grayscale(100%);
+            filter: grayscale(100%);
+            filter: gray;
+            filter: progid:dximagetransform.microsoft.basicimage(grayscale=1);
+
+        }`
+        document.head.appendChild(style);
+        
+        const root = document.querySelector('html');
+        const btnEle = document.querySelector('.toggle-gray');
+        btnEle && btnEle.addEventListener('click', ()=> {
+            walk(document.body);
+        });
+        function toggleClassName(el, name) {
+            if (el.classList.contains(name)) {
+                el.classList.remove(name)
+            } else {
+                el.classList.add(name)
+            }
+        }
+
+        const notGrayClassList = ['.not-gray', '.not-gray1'];
+
+        notGrayClassList.forEach(selector => {
+            console.log('---', [...document.querySelectorAll(notGrayClassList)]);
+            let doms = [...document.querySelectorAll(notGrayClassList)].forEach(v=> {
+                if (!v) return;
+                v.stayColor = true;
+                let parent = v.parentNode;
+                // why do it， because the parent node is not gray, so it will be gray
+                while (parent && !parent.colorful) {
+                    parent.colorful = true;
+                    console.log('--parent', parent, parent.colorful)
+                    parent = parent.parentNode;
+                }
+            })
+        });
+
+        function walk(node) {
+            if (node.nodeType !== 1) return;
+            if (node.stayColor) return;
+            if (!node.colorful){
+                toggleClassName(node, graySelector);
+                return
+            }
+            for (let child of node.children) {
+                walk(child);
+            }
+        }
+
+
+        
+    </script>
+</body>
+
+</html>

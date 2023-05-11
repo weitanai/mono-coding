@@ -1,0 +1,36 @@
+{
+  "name": "release-wei",
+  "description": "auto release npm package",
+  "main": "dist/index.cjs",
+  "exports": {
+    ".": {
+      "module": "./dist/index.cjs",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "module": "dist/index.mjs",
+  "browser": "dist/index.mjs",
+  "keywords": [
+    "release"
+  ],
+  "author": "weitanai",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "enquirer": "^2.3.6",
+    "esno": "^0.16.3",
+    "execa": "^7.1.1",
+    "prompts": "^2.4.2",
+    "release-it": "^15.5.0",
+    "semver": "^7.3.8"
+  },
+  "scripts": {
+    "build": "unbuild",
+    "dev": "esno src/index.ts",
+    "tsx": "tsx src/esno.ts",
+    "up": "tsup src/tsup.ts",
+    "release": "esno scripts/release.ts"
+  },
+  "version": "1.2.3"
+}

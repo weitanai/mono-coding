@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <h1>Create a list</h1>
+  <ul id="user-input"></ul>
+  <script>
+    function handleClick () {
+        const ul = document.getElementById('user-input');
+        let data = prompt("Enter the text for the list item", "");
+        if (data) {
+            let li = document.createElement('li');
+            li.textContent = data;
+            ul.append(li);
+        }
+    }
+   
+  </script>
+  <button onclick="handleClick()">add list </button>
+
+</body>
+</html>

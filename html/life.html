@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../assets//first.jpeg" />
+    <script>
+     
+        window.addEventListener("beforeunload", (event) => {
+        // 起作用，与在 window.onbeforeunload 中 return 值的效果是一样的
+        event.returnValue = "有未保存的值。确认要离开吗？";
+        });
+        window.onload = () => {
+            console.log("on finish")
+        }
+
+        document.load= ()=>{
+            console.log('load source')
+        }
+       
+    </script>
+    
+</body>
+</html>

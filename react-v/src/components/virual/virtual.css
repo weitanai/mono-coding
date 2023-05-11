@@ -1,0 +1,6 @@
+.virual-list {
+    width: 600px;
+    height: 800px;
+    overflow-y: auto;
+    position: relative;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="mock">hello</div>
+    <script>
+        const mockEle = document.getElementById("mock");
+        document.addEventListener('click', (event) => {
+            console.log(event);
+        })
+        const even = document.createEvent('MouseEvents');
+        even.initMouseEvent("click", true, true, document.defaultView,
+            0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        mockEle.dispatchEvent(even);
+    </script>
+</body>
+
+</html>

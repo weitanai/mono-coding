@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div id="animate">0123456789</div>
+    </div>
+    <script>
+    const ele = document.querySelector('.container');
+    const child = document.querySelector('#animate');
+    
+    ele.addEventListener('click', ()=> {
+        let sec = new Date().getSeconds() % 10;
+        child.classList.add('animate'); 
+    })
+    </script>
+    <style> 
+    .container {
+        width: 10px;
+        overflow: hidden;
+    }
+    #animate {
+        display: inline-block;
+    }
+    .animate {
+        transform: translate(-90%);
+        transition-property: transform;
+        transition-duration: 9s;
+        transition-timing-function: linear;
+    }
+    </style>
+</body>
+</html>

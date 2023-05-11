@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>使用 DOM2方式的主要优势是可以为同一个事件添加多个事件处理程序</p>
+    
+    <button id="hello">hello</button>
+    <script>
+        const ele = document.getElementById("hello");
+        console.log(ele);
+        ele.addEventListener("click", () => {
+            console.log("click -pp");
+        }, false);
+
+        ele.addEventListener("click", () => {
+            console.log("click -after");
+        }, false);
+
+        ele.removeEventListener("click", () => {
+            console.log("click -after");
+        }, false);
+
+
+    </script>
+</body>
+
+</html>
