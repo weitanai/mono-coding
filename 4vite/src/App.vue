@@ -1,14 +1,13 @@
 <template>
   <button @click="increment">{{ count }}</button>
   <button @click="ic">{{ c1 }}</button>
-  <Cmp/>
+  <V3Index />
 </template>
 
 <script setup lang="ts">
-import Cmp from './components/Cmp.vue';
 import {useCounterStore, useCounter} from './store/Setup'
+import V3Index from './components/v3.3/Index.vue';
 
-import {isRef} from 'vue';
 
 const store = useCounterStore();
 

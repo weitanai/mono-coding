@@ -18,17 +18,16 @@ function shouldSetAsProps(el, key, val) {
     if (key === 'form' && el.tagName === 'INPUT') return false;
     return key in el;
 }
+
 function patchProps(el, key, preVal, nextVal) {
     if (shouldSetAsProps(el, key, null, vnode.props[key])) {
         const type = typeof el[key];
         const val = vnode.props[key];
-        console.log(/^on/.test(key), '---test')
         if (/^on/.test(key)) {
             const invokers = el._vei || (el._vei = {});
 
             let invoker = invokers[key];
             const name = key.slice(2).toLowerCase();
-            console.log('name--', name);
             if (nextVal) {
                 if (!invoker) {
                     invoker = el._vei[key] = (e) => {
@@ -43,7 +42,6 @@ function patchProps(el, key, preVal, nextVal) {
             } else if (invoker) {
                 el.removeEventListener(name, invoker);
             }
-
         }
         else if (type === 'boolean' && val === '') {
             el[key] = true;
@@ -113,5 +111,5 @@ const vnode = {
     }
 }
 const { render } = createRenderer();
-render(vnode, document.body);
+render(vnode, document.boy);
 

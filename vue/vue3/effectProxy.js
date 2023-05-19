@@ -57,7 +57,7 @@ export function ProxyData(data) {
 export const proxyData = ProxyData(data);
 
 
-
+``
 export function effect(fn, options={}) {
     const effectFn = ()=>{
         cleanUp(effectFn);
