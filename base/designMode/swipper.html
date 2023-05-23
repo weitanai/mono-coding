@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>需要头尾无缝轮播，可定制化每条插入内容，动态传入参数，每屏显示几个，每次滚动几个
+        当有大量千条数据，如何做性能优化。写核心基础结构即可，细节毋需补充。</h1>
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <!-- 动态插入的内容 -->
+        </div>
+    </div>
+    <script>
+
+        function Carousel(containerSelector, data, visibleItems, scrollItems) {
+            const container = document.querySelector(containerSelector);
+            const track = container.querySelector('.carousel-track');
+
+            let currentIndex = 0;
+
+            function render() {
+                // 渲染轮播内容
+                // 根据 currentIndex、visibleItems、scrollItems 等参数进行动态插入和渲染
+            }
+
+            function scrollTo(index) {
+                // 滚动到指定索引的位置
+                // 使用 CSS transform 属性实现滚动效果
+            }
+
+            function next() {
+                // 滚动到下一屏
+                // 根据 currentIndex、visibleItems、scrollItems 等参数计算下一个索引，并调用 scrollTo 方法进行滚动
+            }
+
+            function prev() {
+                // 滚动到上一屏
+                // 根据 currentIndex、visibleItems、scrollItems 等参数计算上一个索引，并调用 scrollTo 方法进行滚动
+            }
+
+            // 初始化
+            render();
+
+            return {
+                next,
+                prev
+            };
+        }
+
+        // 示例使用方式
+        const carousel = new Carousel('.carousel-container', data, 4, 2);
+
+    </script>
+    <style>
+        .carousel-container {
+            width: 100%;
+            /* 轮播容器的宽度 */
+            overflow: hidden;
+            /* 隐藏溢出内容 */
+        }
+
+        .carousel-track {
+            display: flex;
+            /* 使用 Flex 布局 */
+            transition: transform 0.5s;
+            /* 滚动动画过渡效果 */
+        }
+    </style>
+    <p>
+        惰性渲染：只渲染当前可见区域的内容，而不是一次性渲染所有数据。
+        虚拟化：针对大量数据，采用虚拟滚动的方式，只渲染当前可见的数据，减少 DOM 元素数量，提高性能。
+        图片懒加载：对于轮播中的图片，可以采用懒加载的方式，只加载当前可见区域的图片，减少初始加载时的资源消耗。
+        事件委托：为了避免绑定大量事件处理程序，可以使用事件委托的方式，将事件绑定到容器上，减少事件处理的数量。
+        使用 CSS transform：在滚动动画中，使用 CSS 的 transform 属性而不是逐帧修改 DOM 的样式，可以利用 GPU 加速，提高性能。
+    </p>
+
+</body>
+
+</html>
