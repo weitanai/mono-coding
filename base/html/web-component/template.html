@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>using web-component template</title>
+</head>
+
+<body>
+    <button onclick="handleClick()">add paragraph</button>
+    <template id="my-paragraph">
+        <div>
+            <style>
+                p {
+                    color: white;
+                    background-color: #666;
+                    padding: 5px;
+                }
+            </style>
+            <p>My paragraph</p>
+        </div>
+    </template>
+    <script>
+        function handleClick() {
+            console.log('exture add paragraph');
+            let template = document.getElementById('my-paragraph');
+            let templateContent = template.content;
+            const ele = document.createElement('div');
+            ele.innerHTML = 'hello creataElement';
+            document.body.appendChild(ele);
+            document.body.appendChild(templateContent);
+        }
+    </script>
+
+</body>
+
+</html>

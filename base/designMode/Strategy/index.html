@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Strategy mode </title>
+</head>
+
+<body>
+    <h1>how to use Strategy in real time </h1>
+    <div>
+        <p>good</p>
+        策略模式利用组合、委托和多态等技术和思想，可以有效地避免多重条件选择语句。
+        策略模式提供了对开放—封闭原则的完美支持，将算法封装在独立的 strategy 中，使得它
+        们易于切换，易于理解，易于扩展。
+        策略模式中的算法也可以复用在系统的其他地方，从而避免许多重复的复制粘贴工作。
+        在策略模式中利用组合和委托来让 Context 拥有执行算法的能力，这也是继承的一种更轻
+        便的替代方案。
+
+    </div>
+    <div>
+        <p>bad</p>
+        当然，策略模式也有一些缺点，但这些缺点并不严重。
+        首先，使用策略模式会在程序中增加许多策略类或者策略对象，但实际上这比把它们负责的
+        逻辑堆砌在 Context 中要好。
+        其次，要使用策略模式，必须了解所有的 strategy，必须了解各个 strategy 之间的不同点，
+        这样才能选择一个合适的 strategy。比如，我们要选择一种合适的旅游出行路线，必须先了解选
+        择飞机、火车、自行车等方案的细节。此时 strategy 要向客户暴露它的所有实现，这是违反最少
+        知识原则的。
+    </div>
+
+    <form action="http:// xxx.com/register" id="registerForm" method="post">
+        请输入用户名：<input type="text" name="userName" />
+        请输入密码：<input type="text" name="password" />
+        请输入手机号码：<input type="text" name="phoneNumber" />
+        <button>提交</button>
+    </form>
+    <script>
+        var strategies = {
+            isNonEmpty: function (value, errorMsg) { // 不为空
+                if (value === '') {
+                    return errorMsg;
+                }
+            },
+            minLength: function (value, length, errorMsg) { // 限制最小长度
+                if (value.length < length) {
+                    return errorMsg;
+                }
+            },
+            isMobile: function (value, errorMsg) { // 手机号码格式
+                if (!/(^1[3|5|8][0-9]{9}$)/.test(value)) {
+                    return errorMsg;
+                }
+            }
+        };
+        var Validator = function () {
+            this.cache = []; // 保存校验规则
+        };
+        Validator.prototype.add = function (dom, rule, errorMsg) {
+            var ary = rule.split(':'); // 把 strategy 和参数分开
+            this.cache.push(function () { // 把校验的步骤用空函数包装起来，并且放入 cache
+                var strategy = ary.shift(); // 用户挑选的 strategy
+                ary.unshift(dom.value); // 把 input 的 value 添加进参数列表
+                ary.push(errorMsg); // 把 errorMsg 添加进参数列表
+                return strategies[strategy].apply(dom, ary);
+            });
+        };
+        Validator.prototype.start = function () {
+            for (var i = 0, validatorFunc; validatorFunc = this.cache[i++];) {
+                var msg = validatorFunc(); // 开始校验，并取得校验后的返回信息
+                if (msg) { // 如果有确切的返回值，说明校验没有通过
+                    return msg;
+                }
+            }
+        };
+        var validataFunc = function () {
+            var validator = new Validator(); // 创建一个 validator 对象
+            /***************添加一些校验规则****************/
+            validator.add(registerForm.userName, 'isNonEmpty', '用户名不能为空');
+            validator.add(registerForm.password, 'minLength:6', '密码长度不能少于 6 位');
+            validator.add(registerForm.phoneNumber, 'isMobile', '手机号码格式不正确');
+            var errorMsg = validator.start(); // 获得校验结果
+            return errorMsg; // 返回校验结果
+        }
+        var registerForm = document.getElementById('registerForm');
+        registerForm.onsubmit = function () {
+            var errorMsg = validataFunc(); // 如果 errorMsg 有确切的返回值，说明未通过校验
+            if (errorMsg) {
+                alert(errorMsg);
+                return false; // 阻止表单提交
+            }
+        };
+
+    </script>
+    <style>
+        form {
+            margin-top: 100px;
+            
+        }
+    </style>
+</body>
+
+</html>
