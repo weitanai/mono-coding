@@ -1,6 +1,7 @@
 const data = {
     text: 'hello vue3',
     ok: true,
+    arr: [1, 2]
 
 }
 
@@ -36,7 +37,7 @@ const prxoyData = new Proxy(data, {
         console.log(effect, '---list');
         const effectsToRun = new Set(effect) // 新增
         console.log(effectsToRun, activeEffect)
-        effectsToRun.forEach(effectFn => effectFn()) 
+        effectsToRun && effectsToRun.forEach(effectFn => effectFn()) 
 
         return true;
     }
@@ -62,8 +63,14 @@ function cleanUp(effectFn) {
 }
 
 effect(() => {
-    document.body.innerHTML = prxoyData.ok ? prxoyData.text : 'not ok';
+    document.body.innerHTML = prxoyData.arr;
     console.log('render html');
 });
-prxoyData.ok = false;
-prxoyData.text = 'false excute'
+
+const btn = document.createElement('button');
+btn.innerHTML='add proxy arr data';
+document.body.appendChild(btn);
+
+btn.addEventListener('click', () => {
+    prxoyData.arr.push(Math.random()*100);
+})

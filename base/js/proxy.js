@@ -4,39 +4,39 @@
 // 4. 对于数组通过push、unshift方法增加的元素，也无法监听
 
 // use  Object.defineProperty to observe an object;
-const target = {
-    foo: 'foo',
-    bar: 'bar',
-    children: {
-        name: 'wei'
-    }
-}
-function observer(obj) {
-    if (typeof obj !== 'object' || obj === null) return;
-    Object.keys(obj).forEach(key => {
-        defineProperty(obj, key, obj[key])
-    })
-}
-function defineProperty(obj, key, val) {
-    //如果某对象的属性也是一个对象，递归进入该对象，进行监听
-    if (typeof val === 'object') {
-        observer(val)
-    }
-    Object.defineProperty(obj, key, {
-        get() {
-            console.log(`访问了${key}属性`)
-            return val
-        },
-        set(newVal) {
-            if (typeof newVal === 'object') {
-                console.log('newVal is obj')
-                observer(newVal);
-            }
-            console.log(`${key}属性被修改为${newVal}了`)
-            val = newVal
-        }
-    });
-}
+// const target = {
+//     foo: 'foo',
+//     bar: 'bar',
+//     children: {
+//         name: 'wei'
+//     }
+// }
+// function observer(obj) {
+//     if (typeof obj !== 'object' || obj === null) return;
+//     Object.keys(obj).forEach(key => {
+//         defineProperty(obj, key, obj[key])
+//     })
+// }
+// function defineProperty(obj, key, val) {
+//     //如果某对象的属性也是一个对象，递归进入该对象，进行监听
+//     if (typeof val === 'object') {
+//         observer(val)
+//     }
+//     Object.defineProperty(obj, key, {
+//         get() {
+//             console.log(`访问了${key}属性`)
+//             return val
+//         },
+//         set(newVal) {
+//             if (typeof newVal === 'object') {
+//                 console.log('newVal is obj')
+//                 observer(newVal);
+//             }
+//             console.log(`${key}属性被修改为${newVal}了`)
+//             val = newVal
+//         }
+//     });
+// }
 
 // use proxy to deep observe an object;
 let person = {
@@ -47,6 +47,7 @@ let person = {
         name: '小明'
     }
 }
+
 let handler = {
     get(obj, key) {
         console.log('触发了get', key);
@@ -61,24 +62,7 @@ let handler = {
         return true
     }
 }
-let proxyObj = new Proxy(person, handler)
 
-// const target1 = {};
-// Object.defineProperty(target1, 'foo', {
-//     configurable: false,
-//     writable: false,
-//     readable: false,
-//     value: 'bar'
-// });
-// const handler1 = {
-//     get() {
-//         return Reflect.get(...arguments);
-//     },
-//     set() {
-//         Reflect.set(...arguments);
-//         return false;
-//     }
-// };
 
 const proxy = new Proxy(person, handler);
 
