@@ -76,3 +76,16 @@ let v = new BasicCalculator(2)
             .multiply(5)
             .add(1)
             .currentValue();
+
+
+
+type SomeObject = {
+    a: number;
+    b: string;
+}
+
+type Example = {
+    [K in keyof SomeObject]: {
+        key: K
+    }
+}[keyof SomeObject]
