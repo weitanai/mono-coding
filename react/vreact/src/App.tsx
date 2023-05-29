@@ -1,12 +1,14 @@
 import './App.css'
 import TestMemo from './component/dan/TestMemo';
-import UseEffectTest from './component/dan/UseEffectTest';
+import SourceUseState from './component/source/SourceUseState';
+import HookAndClass from './component/dan/HookAndClass';
+
 function App() {
   
   return (
     <div className="App">
       <TestMemo />
-      <UseEffectTest/>
+      <HookAndClass/>
     </div>
   )
 }

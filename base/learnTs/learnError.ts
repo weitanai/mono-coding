@@ -1,5 +1,6 @@
 
 
+
 // type  getArrayType<T> = T extends (infer U)[] ? U : T;
 
 // type TestArr = Array<{name: string}>
@@ -28,3 +29,4 @@
 //     const pathname = demo ? `/${demo}/`: '/';
 //     return
 // }
+
