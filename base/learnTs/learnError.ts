@@ -1,5 +1,14 @@
+import {Person, getPersonName} from './types/index';
 
+const person: Person = { 
+    name: 'jack',
+    age: 18
+}
 
+const  getPeron: getPersonName = (person: Person) => {
+    console.log(person.age);
+}
+getPeron(person);
 
 // type  getArrayType<T> = T extends (infer U)[] ? U : T;
 
