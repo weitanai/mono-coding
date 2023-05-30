@@ -1,5 +1,5 @@
-import {useSelector, useDispatch} from 'react-redux';
-import {decrement, increment, incrementByAmount} from '../../store/counter';
+import {useSelector, useDispatch} from "react-redux";
+import {decrement, increment, incrementByAmount} from "../../store/counter";
 
 
 
@@ -16,6 +16,6 @@ function ReduxUse() {
             <div><button onClick = {()=> dispatch(increment())} >+1</button></div>
             <div><button onClick = {()=> dispatch(incrementByAmount({value: 10}))} >+10</button></div>
         </div>
-    )
+    );
 }
-export default ReduxUse
+export default ReduxUse;

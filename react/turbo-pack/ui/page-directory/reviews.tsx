@@ -1,5 +1,5 @@
-import { type IReview } from '#/lib/page-directory/get-products'
-import { ProductReviewCard as ProductReviewCardCss } from '#/ui/product-review-card'
+import { type IReview } from "#/lib/page-directory/get-products";
+import { ProductReviewCard as ProductReviewCardCss } from "#/ui/product-review-card";
 // import { ProductReviewCard as ReviewCssModules } from '#/ui/modules/ProductReviewCard';
 
 export function Reviews({ reviews }: { reviews: IReview[] }) {
@@ -14,9 +14,9 @@ export function Reviews({ reviews }: { reviews: IReview[] }) {
               {/* Styled using in-built CSS Modules */}
               {/* <ReviewCssModules review={review} /> */}
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
+  );
 }

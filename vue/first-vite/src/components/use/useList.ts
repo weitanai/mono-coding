@@ -1,4 +1,4 @@
-import { ref, Ref, onMounted, watch } from 'vue';
+import { ref, Ref, onMounted, watch } from "vue";
 
 export default function useList<ItemType extends Object, FilterOption extends Object>(
     requestFn: Function,
@@ -68,7 +68,7 @@ export default function useList<ItemType extends Object, FilterOption extends Ob
         loading,
         loadData,
         reset
-    }
+    };
 }
 
 

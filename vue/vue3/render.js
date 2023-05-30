@@ -10,12 +10,12 @@ function setElementText(tag, text) {
 
 function insert(el, parent, anchor = null) {
     console.log(`set ${JSON.stringify(el)} add ${JSON.stringify(parent)}`);
-    parent.insertBefore(el, anchor)
+    parent.insertBefore(el, anchor);
 }
 
 
 function shouldSetAsProps(el, key, val) {
-    if (key === 'form' && el.tagName === 'INPUT') return false;
+    if (key === "form" && el.tagName === "INPUT") return false;
     return key in el;
 }
 
@@ -32,7 +32,7 @@ function patchProps(el, key, preVal, nextVal) {
                 if (!invoker) {
                     invoker = el._vei[key] = (e) => {
                         invoker.value(e);
-                    }
+                    };
                     invoker.value = nextVal;
 
                     el.addEventListener(name, invoker);
@@ -43,7 +43,7 @@ function patchProps(el, key, preVal, nextVal) {
                 el.removeEventListener(name, invoker);
             }
         }
-        else if (type === 'boolean' && val === '') {
+        else if (type === "boolean" && val === "") {
             el[key] = true;
         } else {
             el[key] = val;
@@ -79,7 +79,7 @@ function createRenderer() {
     }
     function mountComponent(vnode, container) {
         const el = createElement(vnode.type);
-        if (typeof vnode.children === 'string') {
+        if (typeof vnode.children === "string") {
             setElementText(el, vnode.children);
         } else if (Array.isArray(vnode.children)) {
             vnode.children.forEach(child => {
@@ -96,20 +96,20 @@ function createRenderer() {
     }
     return {
         render
-    }
+    };
 }
 
 
 const vnode = {
-    type: 'div',
-    children: 'hello world',
+    type: "div",
+    children: "hello world",
     props: {
-        class: 'v-test',
+        class: "v-test",
         onclick: () => {
-            alert('vnode click');
+            alert("vnode click");
         }
     }
-}
+};
 const { render } = createRenderer();
 render(vnode, document.boy);
 

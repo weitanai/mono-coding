@@ -1,9 +1,9 @@
-const express = require('express');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
+const express = require("express");
+const webpack = require("webpack");
+const webpackDevMiddleware = require("webpack-dev-middleware");
 
 const app = express();
-const config = require('./webpack.config.js');
+const config = require("./webpack.config.js");
 const compiler = webpack(config);
 
 // 告知 express 使用 webpack-dev-middleware，
@@ -16,5 +16,5 @@ app.use(
 
 // 将文件 serve 到 port 3000。
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!\n');
+  console.log("Example app listening on port 3000!\n");
 });

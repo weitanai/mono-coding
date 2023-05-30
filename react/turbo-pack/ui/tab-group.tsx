@@ -1,4 +1,4 @@
-import { Tab } from '#/ui/tab'
+import { Tab } from "#/ui/tab";
 
 export type Item = {
   text: string
@@ -13,5 +13,5 @@ export const TabGroup = ({ path, items }: { path: string; items: Item[] }) => {
         <Tab key={path + item.slug} item={item} path={path} />
       ))}
     </div>
-  )
-}
+  );
+};

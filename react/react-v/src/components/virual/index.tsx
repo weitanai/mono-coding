@@ -1,4 +1,4 @@
-import VirtualScroll from './VirtualScroll';
+import VirtualScroll from "./VirtualScroll";
 
 function Index() {
     const list = [];
@@ -9,6 +9,6 @@ function Index() {
         <div> 
             <VirtualScroll  list={list} itemHeight={20}  />
         </div>
-    )
+    );
 }
 export default Index;

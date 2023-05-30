@@ -2,7 +2,7 @@
 
 
 function testFun() {
-    const  {res} = import('./exportTest.js');
+    const  {res} = import("./exportTest.js");
     console.log(res);
 }
 testFun();

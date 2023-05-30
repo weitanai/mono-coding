@@ -3,7 +3,7 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.model.define('nestUsers', {
+  const Model = app.model.define("nestUsers", {
     id: {
       type: DataTypes.INTEGER(11).UNSIGNED,
       allowNull: false,
@@ -31,12 +31,12 @@ module.exports = app => {
       allowNull: true
     }
   }, {
-    tableName: 'nestUsers'
+    tableName: "nestUsers"
   });
 
   Model.associate = function() {
 
-  }
+  };
 
   return Model;
 };

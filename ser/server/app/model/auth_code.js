@@ -3,7 +3,7 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.model.define('auth_code', {
+  const Model = app.model.define("auth_code", {
     id: {
       type: DataTypes.INTEGER(11).UNSIGNED,
       allowNull: false,
@@ -23,12 +23,12 @@ module.exports = app => {
       allowNull: true
     }
   }, {
-    tableName: 'auth_code'
+    tableName: "auth_code"
   });
 
   Model.associate = function() {
 
-  }
+  };
 
   return Model;
 };

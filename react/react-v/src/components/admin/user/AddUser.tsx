@@ -1,16 +1,16 @@
-import './AddUser.css';
-import { useState, useContext } from 'react';
-import { signUp } from '../../../api/index';
-import { Button, Modal } from 'antd';
+import "./AddUser.css";
+import { useState, useContext } from "react";
+import { signUp } from "../../../api/index";
+import { Button, Modal } from "antd";
 
-import {  useParams } from 'react-router-dom';
+import {  useParams } from "react-router-dom";
 function AddUser() {
     const [name, setName] = useState();
     const [age, setAge] = useState();
     const [avatar, setAvatar] = useState();
     const [isShow, toggleShow] = useState(false);
     const params = useParams();
-    console.log(params, 'params--');
+    console.log(params, "params--");
     function handleName(e) {
         setName(e.target.value);
     }
@@ -31,7 +31,7 @@ function AddUser() {
     }
 
     const handleSubmit = () => {
-        console.log('excuting add user');
+        console.log("excuting add user");
         if (!name || !age || !avatar) {
             return;
         }
@@ -39,15 +39,15 @@ function AddUser() {
             name,
             age,
             avatar,
-        }
-        signUp('/user/createUser', params).then(res => {
+        };
+        signUp("/user/createUser", params).then(res => {
             if (res) {
-                console.log('add user success');
+                console.log("add user success");
             }
         })
-            .catch(err => { console.error(err) })
+            .catch(err => { console.error(err); })
             .finally(()=>toggleShow(false));
-    }
+    };
     return (
         <div>
             <Button onClick={()=>toggleShow(true)}>add User</Button>
@@ -58,7 +58,7 @@ function AddUser() {
             </Modal>
         </div>
 
-    )
+    );
 
 }
 

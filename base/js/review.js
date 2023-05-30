@@ -20,10 +20,10 @@ function clone(target, map = new Map()) {
     } else {
         return target;
     }
-};
+}
 
 function isObject(obj) {
-    return typeof obj === 'object' && obj !== null;
+    return typeof obj === "object" && obj !== null;
 }
 // const baseObj = {
 //     name: 'wei', 
@@ -42,15 +42,15 @@ function Ttest(name) {
     this.name = name;
   }
 
-  Ttest.prototype.get = ()=> {console.log('get--')}
+  Ttest.prototype.get = ()=> {console.log("get--");};
 function newP(fn, ...arg) {
     const obj = Object.create(fn.prototype);
-    console.log('first create obj', obj);
+    console.log("first create obj", obj);
     const res = fn.apply(obj, arg);
     return res instanceof Object ? res : obj;
   }
 
-  const t = new Ttest('ye');
+  const t = new Ttest("ye");
   
 //   console.log(t, t.name)
 
@@ -96,9 +96,9 @@ class Child extends F {
 // proxy methods
 
 const proxyTarget = {
-    foo: 'foo', 
-    name: 'name'
-}
+    foo: "foo", 
+    name: "name"
+};
 
 
 const hasProxy =  new Proxy(proxyTarget, {
@@ -111,7 +111,7 @@ const hasProxy =  new Proxy(proxyTarget, {
         console.log(target, prop, value, receiver);
         return Reflect.set(...arguments);
     }
-})
+});
 
 
 
@@ -126,15 +126,15 @@ function getG(...args) {
 
 
 const callF = {
-    nameCa: 'wei calf',
+    nameCa: "wei calf",
     say() {
-        console.log(this.nameCa)
+        console.log(this.nameCa);
     }, 
     arrowFN: ()=>{
-        console.log(...arguments, 'arrow')
-        console.log(this, this.nameCa, 'arrow -----');
+        console.log(...arguments, "arrow");
+        console.log(this, this.nameCa, "arrow -----");
     }
-}
+};
 
 let group = {
     title: "Our Group",
@@ -142,7 +142,7 @@ let group = {
   
     showList() {
       this.students.forEach(
-        student => console.log(this.title + ': ' + student)
+        student => console.log(this.title + ": " + student)
       );
     }
   };
@@ -152,29 +152,29 @@ let group = {
 
 Function.prototype.myCall1 = function(context) {
     // 如果没有传或传的值为空对象 context指向window
-    context = context || window
-    let fn = mySymbol(context)
-    context[fn] = this //给context添加一个方法 指向this
+    context = context || window;
+    let fn = mySymbol(context);
+    context[fn] = this; //给context添加一个方法 指向this
     // 处理参数 去除第一个参数this 其它传入fn函数
-    let arg = [...arguments].slice(1) //[...xxx]把类数组变成数组，arguments为啥不是数组自行搜索 slice返回一个新数组
-    context[fn](...arg) //执行fn
-    delete context[fn] //删除方法
-}
+    let arg = [...arguments].slice(1); //[...xxx]把类数组变成数组，arguments为啥不是数组自行搜索 slice返回一个新数组
+    context[fn](...arg); //执行fn
+    delete context[fn]; //删除方法
+};
 
 
 
 // 柯里昂
 function curry(fn) {
     return function curried(...args) {
-        console.log(fn.length, '----');
+        console.log(fn.length, "----");
         if(args.length >= fn.length) {
             return fn.apply(this, args);
         } else {
             return function(...arg2) {
                 return curried.apply(this, args.concat(arg2));
-            }
+            };
         }
-    }
+    };
 }
 function addT(a,b,c) {
     return a+b+c;
@@ -184,9 +184,9 @@ function addT(a,b,c) {
 // 手写includes
 
 Array.prototype.myIncludes = function(searchElement, fromIndex) {
-    console.log('myIncludes', this, this.length);
+    console.log("myIncludes", this, this.length);
     if (this === null) {
-        throw new Error('undefined');
+        throw new Error("undefined");
     }
     const len = this.length;
     if ( len === 0 || fromIndex >= len) return false;
@@ -199,8 +199,8 @@ Array.prototype.myIncludes = function(searchElement, fromIndex) {
         beginIndex++;
     }
     return false;
-}
+};
 
-const arr = [1, 2, {name: 'wei'}];
-const seacrhItem = {name: 'wei'}
+const arr = [1, 2, {name: "wei"}];
+const seacrhItem = {name: "wei"};
 console.log(arr.myIncludes(seacrhItem), arr.includes(seacrhItem) );

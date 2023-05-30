@@ -1,7 +1,7 @@
-import { Layout } from '#/ui/page-directory/layout'
-import { Inter } from 'next/font/google'
-import { AppProps } from 'next/app'
-import 'styles/globals.css'
+import { Layout } from "#/ui/page-directory/layout";
+import { Inter } from "next/font/google";
+import { AppProps } from "next/app";
+import "styles/globals.css";
 
 // Using next/font instead of a manual setup, we get:
 // - significantly easier setup
@@ -9,9 +9,9 @@ import 'styles/globals.css'
 // - reduced layout shift
 // - no network requests from the browser
 const primaryFont = Inter({
-  subsets: ['latin'],
-  variable: '--primary-font',
-})
+  subsets: ["latin"],
+  variable: "--primary-font",
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -20,5 +20,5 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </Layout>
     </main>
-  )
+  );
 }

@@ -1,6 +1,6 @@
-import  './UserInfo.css'
-import {useContext} from 'react';
-import {GlobalContext} from '../hook-learn/UserInfoContext';
+import  "./UserInfo.css";
+import {useContext} from "react";
+import {GlobalContext} from "../hook-learn/UserInfoContext";
 
 
 function UserInfo() {
@@ -11,10 +11,10 @@ function UserInfo() {
                 <span className="user-info-name">{userInfo.name}</span>
                 <img src={userInfo.avatar} alt="avatar" className="user-info-avatar"  />
             </div>
-        )
+        );
     }
     return (
         <div></div>
-    )
+    );
 }
 export default UserInfo;

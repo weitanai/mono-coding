@@ -1,13 +1,13 @@
-import { type IProduct } from '#/lib/page-directory/get-products'
-import { ProductEstimatedArrival } from '#/ui/product-estimated-arrival'
-import { ProductLowStockWarning } from '#/ui/product-low-stock-warning'
-import { ProductPrice } from '#/ui/product-price'
-import { ProductSplitPayments } from '#/ui/product-split-payments'
-import { ProductUsedPrice } from '#/ui/product-used-price'
-import { dinero, type DineroSnapshot } from 'dinero.js'
+import { type IProduct } from "#/lib/page-directory/get-products";
+import { ProductEstimatedArrival } from "#/ui/product-estimated-arrival";
+import { ProductLowStockWarning } from "#/ui/product-low-stock-warning";
+import { ProductPrice } from "#/ui/product-price";
+import { ProductSplitPayments } from "#/ui/product-split-payments";
+import { ProductUsedPrice } from "#/ui/product-used-price";
+import { dinero, type DineroSnapshot } from "dinero.js";
 
 export function ProductPricing({ product }: { product: IProduct }) {
-  const price = dinero(product.price as DineroSnapshot<number>)
+  const price = dinero(product.price as DineroSnapshot<number>);
 
   return (
     <div className="space-y-4 rounded-lg bg-gray-900 p-3">
@@ -28,5 +28,5 @@ export function ProductPricing({ product }: { product: IProduct }) {
         Add to Cart
       </button>
     </div>
-  )
+  );
 }

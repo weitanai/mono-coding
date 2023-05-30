@@ -10,18 +10,18 @@ interface Fish {
 
 function getSmallPet(animal: Fish | Bird): Fish | Bird {
     // ...
-    return animal
+    return animal;
 }
 const b: Bird = {
     fly() {
-        console.log('fly')
+        console.log("fly");
     },
     layEggs() {
-        console.log('lay eggs');
+        console.log("lay eggs");
     }
-}
+};
 
-let pet = getSmallPet(b);
+const pet = getSmallPet(b);
 
 if ((<Fish>pet).swim()) {
     (<Fish>pet).swim();
@@ -41,20 +41,20 @@ type Proxify<T> = {
 function proxify<T>(o: T): Proxify<T> {
    // ... wrap proxies ...
     const res = {} as Proxify<T>;
-    for (let i in o) {
+    for (const i in o) {
         res[i].get = ()=>{
             return o[i];
-        }
+        };
         res[i].set = (value) => {
             o[i] = value;
-        }
+        };
     }
     return res;
 }
 const props = {
-    key: 'key'
-}
-let proxyProps = proxify(props);
+    key: "key"
+};
+const proxyProps = proxify(props);
 
 class BasicCalculator {
     public constructor(protected value: number = 0) { }
@@ -72,7 +72,7 @@ class BasicCalculator {
     // ... other operations go here ...
 }
 
-let v = new BasicCalculator(2)
+const v = new BasicCalculator(2)
             .multiply(5)
             .add(1)
             .currentValue();

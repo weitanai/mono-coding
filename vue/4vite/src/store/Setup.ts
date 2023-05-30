@@ -1,13 +1,13 @@
-import {defineStore, storeToRefs} from 'pinia';
-import {ref, toRef} from 'vue';
+import {defineStore, storeToRefs} from "pinia";
+import {ref, toRef} from "vue";
 
-export const useCounterStore = defineStore('counter', () => {
+export const useCounterStore = defineStore("counter", () => {
     const count = ref(0);
     function increment() {
-      count.value++
+      count.value++;
     }
   
-    return { count, increment }
+    return { count, increment };
   });
 
 export function useCounter() {
@@ -15,6 +15,6 @@ export function useCounter() {
   function ic() {
     c1.value++;
   }
-  return {c1, ic}
+  return {c1, ic};
 }
 

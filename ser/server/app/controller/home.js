@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const Controller = require('egg').Controller;
+const Controller = require("egg").Controller;
 
 class HomeController extends Controller {
   async getUserList() {
@@ -15,12 +15,12 @@ class HomeController extends Controller {
       if (uid) {
         ctx.JsonResponse.success(data);
       } else {
-        ctx.JsonResponse.error('you need sign up', 404);
+        ctx.JsonResponse.error("you need sign up", 404);
       }
     } else {
-      ctx.JsonResponse.error('you need login', 404);
+      ctx.JsonResponse.error("you need login", 404);
     }
-  };
+  }
 }
 
 module.exports = HomeController;

@@ -9,9 +9,9 @@ interface ReadO {
 }
 
 const  rObj: ReadO = {
-    hello: 'hello',
+    hello: "hello",
     world: 11,
-}
+};
 
 // rObj.hello = 'hellofdfas';
 
@@ -27,17 +27,17 @@ type RObj = Readonly<canChange>;
 
 
 const canC : canChange = {
-    bar: 'hello',
-    foo: 'world',
-}
+    bar: "hello",
+    foo: "world",
+};
 
-canC.foo = 'dog';
+canC.foo = "dog";
 
 const rO: RObj = {
-    bar: 'hello',
-    foo: 'world',
-}
-rO.bar = 'bar';
+    bar: "hello",
+    foo: "world",
+};
+rO.bar = "bar";
 
 
 // combine  more interface
@@ -47,9 +47,9 @@ type GenIndex = {
 }
 
 const gItem: GenIndex = {
-    hello: 'hello',
-    world: 'world'
-}
+    hello: "hello",
+    world: "world"
+};
 
 
 
@@ -62,6 +62,6 @@ type RObjA = {
 }
 const rrObj: RObjA ={
     ra: 1
-}
+};
 rrObj.ra = 2;
 

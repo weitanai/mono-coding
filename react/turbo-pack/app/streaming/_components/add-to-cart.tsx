@@ -1,22 +1,22 @@
-'use client'
+"use client";
 
-import { useRouter } from 'next/navigation'
-import { useTransition } from 'react'
-import { useCartCount } from './cart-count-context'
+import { useRouter } from "next/navigation";
+import { useTransition } from "react";
+import { useCartCount } from "./cart-count-context";
 
 export function AddToCart({ initialCartCount }: { initialCartCount: number }) {
-  const router = useRouter()
-  const [isPending, startTransition] = useTransition()
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
 
-  const [, setOptimisticCartCount] = useCartCount()
+  const [, setOptimisticCartCount] = useCartCount();
 
   const addToCart = () => {
-    setOptimisticCartCount(initialCartCount + 1)
+    setOptimisticCartCount(initialCartCount + 1);
 
     // update the cart count cookie
     document.cookie = `_cart_count=${initialCartCount + 1}; path=/; max-age=${
       60 * 60 * 24 * 30
-    }};`
+    }};`;
 
     // Normally you would also send a request to the server to add the item
     // to the current users cart
@@ -24,16 +24,16 @@ export function AddToCart({ initialCartCount }: { initialCartCount: number }) {
 
     // Use a transition and isPending to create inline loading UI
     startTransition(() => {
-      setOptimisticCartCount(null)
+      setOptimisticCartCount(null);
 
       // Refresh the current route and fetch new data from the server without
       // losing client-side browser or React state.
-      router.refresh()
+      router.refresh();
 
       // We're working on more fine-grained data mutation and revalidation:
       // https://beta.nextjs.org/docs/data-fetching/mutating
-    })
-  }
+    });
+  };
 
   return (
     <button
@@ -52,5 +52,5 @@ export function AddToCart({ initialCartCount }: { initialCartCount: number }) {
         </div>
       ) : null}
     </button>
-  )
+  );
 }

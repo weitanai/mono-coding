@@ -1,7 +1,7 @@
-import type { Category } from '#/app/api/categories/category'
-import { getBaseUrl } from '#/lib/getBaseUrl'
-import { SkeletonCard } from '#/ui/skeleton-card'
-import { notFound } from 'next/navigation'
+import type { Category } from "#/app/api/categories/category";
+import { getBaseUrl } from "#/lib/getBaseUrl";
+import { SkeletonCard } from "#/ui/skeleton-card";
+import { notFound } from "next/navigation";
 
 export default async function Page({
   params,
@@ -15,20 +15,20 @@ export default async function Page({
     {
       // We intentionally disable Next.js Cache to better demo
       // `loading.js`
-      cache: 'no-cache',
+      cache: "no-cache",
     }
-  )
+  );
 
   if (!res.ok) {
     // Render the closest `error.js` Error Boundary
-    throw new Error('Something went wrong!')
+    throw new Error("Something went wrong!");
   }
 
-  const category = (await res.json()) as Category
+  const category = (await res.json()) as Category;
 
   if (!category) {
     // Render the closest `not-found.js` Error Boundary
-    notFound()
+    notFound();
   }
 
   return (
@@ -41,5 +41,5 @@ export default async function Page({
         ))}
       </div>
     </div>
-  )
+  );
 }

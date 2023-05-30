@@ -36,24 +36,24 @@
 
  
 function testNoArg(a, b) {
-    console.log(arguments[0], '------- arg after');
+    console.log(arguments[0], "------- arg after");
     a = 1;
-    console.log(arguments[0], '----b1');
-    arguments[0] = 'change arg';
+    console.log(arguments[0], "----b1");
+    arguments[0] = "change arg";
     console.log(arguments);
     console.log(a, b);
 }
 
-testNoArg('test', 'b');
+testNoArg("test", "b");
 
 function testStrictArg(a, b) {
-    'use strict';
-    console.log(arguments[0], '------- arg after');
+    "use strict";
+    console.log(arguments[0], "------- arg after");
     a = 1;
-    console.log(arguments[0], '----b1');
-    arguments[0] = 'change arg';
+    console.log(arguments[0], "----b1");
+    arguments[0] = "change arg";
     console.log(arguments);
     console.log(a, b);
 }
 
-testStrictArg('strictTest', 'strictB');
+testStrictArg("strictTest", "strictB");

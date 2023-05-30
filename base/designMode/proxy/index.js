@@ -1,6 +1,6 @@
-const localPath = '../..//assets/prototype.jpg';
+const localPath = "../..//assets/prototype.jpg";
 
-const urlPath = 'https://static.runoob.com/images/demo/demo1.jpg';
+const urlPath = "https://static.runoob.com/images/demo/demo1.jpg";
 
 // var MyImage = (function () {
 //     var imgNode = document.createElement('img');
@@ -20,11 +20,11 @@ const urlPath = 'https://static.runoob.com/images/demo/demo1.jpg';
 // MyImage.setSrc('https://static.runoob.com/images/demo/demo1.jpg');
 
 const myImage = (function () {
-    const imgNode = document.createElement('img');
+    const imgNode = document.createElement("img");
     document.body.appendChild(imgNode);
     return function (src) {
         imgNode.src = src;
-    }
+    };
 })();
 
 // 不耦合
@@ -37,7 +37,7 @@ const proxyImage = (function () {
         img.src = src;
         img.fn = fn;
         fn(localPath);
-    }
+    };
 })();
 
 proxyImage(myImage, urlPath, localPath);

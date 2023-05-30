@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState} from "react";
 
 export default function HookAndClass () {
-    const [name, setName] = useState('Dan');
+    const [name, setName] = useState("Dan");
     
     return (
         <div>
             <h1>HookAndClass</h1>
             <div>
-                <button  onClick={()=> setName('wei')}>set to wei</button>
+                <button  onClick={()=> setName("wei")}>set to wei</button>
             </div>
             <div>current name {name}</div>
             <ProfilePage user={name}/>
@@ -18,7 +18,7 @@ export default function HookAndClass () {
 
 class ProfilePage extends React.Component {
     showMessage = () => {
-        alert('Followed ' + this.props.user);
+        alert("Followed " + this.props.user);
     };
 
     handleClick = () => {
@@ -32,7 +32,7 @@ class ProfilePage extends React.Component {
 
 function FnProfilePage({user} : any) {
     const showMessage = () => {
-        alert('Followed ' + user);
+        alert("Followed " + user);
     };
 
     const handleClick = () => {

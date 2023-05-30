@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios from "axios";
 
 
 const http = axios.create({
-    baseURL: '/api',
+    baseURL: "/api",
     headers: {
-        'content-Type': 'application/json',
+        "content-Type": "application/json",
     },
     withCredentials: true,
 });
@@ -16,9 +16,9 @@ http.interceptors.response.use((response) => {
     }
     return data.data;
 }, (err) => {
-    console.error(err);;
+    console.error(err);
     return Promise.reject(err);
-})
+});
 
 
 async function getBaseData(url: string, params: Object) {
@@ -56,35 +56,35 @@ export async function delUserList(url: string, params : any) {
 }
 
 export async function postData(url: string, params : any) {
-    console.log('post data--------------------');
+    console.log("post data--------------------");
     const res = await postBaseData(
         url,
         params,
-    )
+    );
     return res;
 }
 
 
 export async function signUp(url: string, params : any) {
-    console.log('signUp data--------------------');
+    console.log("signUp data--------------------");
     const res = await postBaseData(
         url,
         params,
-    )
+    );
     return res;
 }
 
 export async function login(url: string, params : any) {
-    console.log('login data--------------------');
+    console.log("login data--------------------");
     const res = await postBaseData(
         url,
         params,
-    )
+    );
     return res;
 }
 
 export async function logout(url: string) {
-    console.log('login data--------------------');
+    console.log("login data--------------------");
     const res = await http.get(url);
     return res;
 }
@@ -93,20 +93,20 @@ export async function logout(url: string) {
 
 // post request
 export async function createPost(url: string, params : any) {
-    console.log('create post data--------------------');
+    console.log("create post data--------------------");
     const res = await postBaseData(
         url,
         params,
-    )
+    );
     return res;
 }
 
 export async function updatePost(url: string, params : any) {
-    console.log('create post data--------------------');
+    console.log("create post data--------------------");
     const res = await postBaseData(
         url,
         params,
-    )
+    );
     return res;
 }
 export async function getPostLists(url: string, params : any) {
@@ -116,21 +116,21 @@ export async function getPostLists(url: string, params : any) {
 
 
 export async function getPostContent(url: string, params : any) {
-    console.log('get post content data--------------------');
+    console.log("get post content data--------------------");
     const res = await postBaseData(
         url,
         params,
-    )
+    );
     return res;
 }
 
 
 
 export async function getPostUserList(url: string) {
-    console.log('get user list data--------------------');
+    console.log("get user list data--------------------");
     const res = await getBaseData(
         url,
-    )
+    );
     return res;
 }
 
@@ -139,10 +139,10 @@ export async function getPostUserList(url: string) {
 
 
 export async function getUserPostList(url: string) {
-    console.log('get user list data--------------------');
+    console.log("get user list data--------------------");
     const res = await getBaseData(
         url
-    )
+    );
     return res;
 }
 

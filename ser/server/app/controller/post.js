@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const Controller = require('egg').Controller;
+const Controller = require("egg").Controller;
 
 class PostController extends Controller {
   async create() {
@@ -11,9 +11,9 @@ class PostController extends Controller {
       const createdRes = ctx.model.Post.create(data);
       ctx.JsonResponse.success(createdRes);
     } catch (e) {
-      console.error(e)
+      console.error(e);
     }
-  };
+  }
   async update() {
     try {
       const { ctx } = this;
@@ -26,9 +26,9 @@ class PostController extends Controller {
       });
       ctx.JsonResponse.success(updateRes);
     } catch (e) {
-      console.error(e)
+      console.error(e);
     }
-  };
+  }
   async list() {
     const { ctx } = this;
     const { pageIndex, categoryId, isMobile } = ctx.request.body;
@@ -37,9 +37,9 @@ class PostController extends Controller {
     const page = pageIndex || 1;
     const offset = (page - 1) * limit;
     const where = categoryId ? { category: categoryId } : null;
-    console.log('where--', where);
+    console.log("where--", where);
     const total = await ctx.model.Post.count({where});
-    console.log(total, '--');
+    console.log(total, "--");
     const data = await ctx.model.Post.findAll({
       where,
       limit,
@@ -52,12 +52,12 @@ class PostController extends Controller {
     const { ctx } = this;
     try {
       const { id } = ctx.request.body;
-      console.log('--id', typeof id === 'string', typeof id)
+      console.log("--id", typeof id === "string", typeof id);
       const res = await ctx.model.Post.findOne({
         where: {
           id,
         }
-      })
+      });
       ctx.JsonResponse.success(res);
     } catch (e) {
       console.error(e);
@@ -69,8 +69,8 @@ class PostController extends Controller {
     const { ctx } = this;
     try {
       const userList = await ctx.model.Post.findAll({
-        attributes: ['author_name']
-      })
+        attributes: ["author_name"]
+      });
       const list = [];
       for (let i of userList) {
         i.author_name && !list.includes(i.author_name) && list.push(i.author_name); 
@@ -91,7 +91,7 @@ class PostController extends Controller {
           where: {
             author_name,
           }
-      })
+      });
       
       ctx.JsonResponse.success(userPostList);
     } catch (e) {

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 export const SectionLink = ({
   children,
@@ -15,4 +15,4 @@ export const SectionLink = ({
     </div>
     <div className="font-medium text-white">{text}</div>
   </Link>
-)
+);

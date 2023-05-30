@@ -1,9 +1,9 @@
 const data = {
-    text: 'hello vue3',
+    text: "hello vue3",
     ok: true,
     arr: [1, 2]
 
-}
+};
 
 const bucket = new WeakMap();
 
@@ -22,7 +22,7 @@ const prxoyData = new Proxy(data, {
         }
         deps.add(activeEffect);
         activeEffect.deps.push(deps);
-        console.log('activeEffect', activeEffect.deps, bucket)
+        console.log("activeEffect", activeEffect.deps, bucket);
 
         return target[key];
     },
@@ -34,10 +34,10 @@ const prxoyData = new Proxy(data, {
             return;
         }
         const effect = depsMap.get(key);
-        console.log(effect, '---list');
-        const effectsToRun = new Set(effect) // 新增
-        console.log(effectsToRun, activeEffect)
-        effectsToRun && effectsToRun.forEach(effectFn => effectFn()) 
+        console.log(effect, "---list");
+        const effectsToRun = new Set(effect); // 新增
+        console.log(effectsToRun, activeEffect);
+        effectsToRun && effectsToRun.forEach(effectFn => effectFn()); 
 
         return true;
     }
@@ -50,12 +50,12 @@ function effect(fn) {
     cleanUp(effectFn);
         activeEffect = effectFn;
         fn();
-    }
+    };
     effectFn.deps = [];
     effectFn();
 }
 function cleanUp(effectFn) {
-    console.log(effectFn.deps, 'cleanup');
+    console.log(effectFn.deps, "cleanup");
     for (let i = 0; i < effectFn.deps.length; i++) {
         const deps = effectFn.deps[i];
         deps.delete(effectFn);
@@ -64,13 +64,13 @@ function cleanUp(effectFn) {
 
 effect(() => {
     document.body.innerHTML = prxoyData.arr;
-    console.log('render html');
+    console.log("render html");
 });
 
-const btn = document.createElement('button');
-btn.innerHTML='add proxy arr data';
+const btn = document.createElement("button");
+btn.innerHTML="add proxy arr data";
 document.body.appendChild(btn);
 
-btn.addEventListener('click', () => {
+btn.addEventListener("click", () => {
     prxoyData.arr.push(Math.random()*100);
-})
+});

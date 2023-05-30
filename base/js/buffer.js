@@ -1,28 +1,28 @@
-const fs = require('fs');
+const fs = require("fs");
 
 
 
 async function readSource() {
-    const rs = fs.createReadStream('./file.md', { highWaterMark: 11 });
+    const rs = fs.createReadStream("./file.md", { highWaterMark: 11 });
     // rs.setEncoding('utf8');
     let size = 0;
     const data = [];
     return new Promise((resolve, reject) => {
-        rs.on('data', (chunk) => {
+        rs.on("data", (chunk) => {
             size += chunk.length;
             data.push(Buffer.from(chunk));
-        })
-        rs.on('end', () => {
+        });
+        rs.on("end", () => {
             const buf = Buffer.concat(data, size);
             resolve(buf.toString());
         });
-        rs.on('error', (err) => reject(err))
-    })
+        rs.on("error", (err) => reject(err));
+    });
 }
 
 async function read() {
     const res = await readSource();
-    console.log(res, '---')
+    console.log(res, "---");
 }
 
 
@@ -44,9 +44,9 @@ let uri = "http://www.wrox.com/illegal value.js<srcipt></srcipt>";
 const ob = {
     key: 1,
     arr: [1, 2, 3]
-}
+};
 const deepCopy = function (obj) {
-    if (typeof obj !== 'object') {
+    if (typeof obj !== "object") {
         return obj;
     }
     if (Array.isArray(obj)) {
@@ -54,14 +54,14 @@ const deepCopy = function (obj) {
     }
     const resObj = {};
     for (let key of Object.keys(obj)) {
-        if (typeof obj[key] !== 'object') {
+        if (typeof obj[key] !== "object") {
             resObj[key] = obj[key];
         } else {
             resObj[key] = deepCopy(obj[key]);
         }
     }
     return resObj;
-}
+};
 
 function SuperType() {
     this.property = true;
@@ -103,22 +103,22 @@ SubType.prototype = new SuperType();
 function Ttest(name) {
     this.name = name;
   }
-  Ttest.prototype.hello = ()=>console.log('say hello')
-  Ttest.prototype.get = ()=> console.log('get--');
+  Ttest.prototype.hello = ()=>console.log("say hello");
+  Ttest.prototype.get = ()=> console.log("get--");
 
 function newP(fn, ...arg) {
     const obj = Object.create(fn.prototype);
-    console.log('first create obj', obj);
+    console.log("first create obj", obj);
     const res = fn.apply(obj, arg);
     return res instanceof Object ? res : obj;
   }
 
 
 
-const str = 'hello';
+const str = "hello";
 const o = { k: 1 };
 const emptyObj = {};
 const oneArr = [];
 const emptyArr = [];
-const numStr = '23';
+const numStr = "23";
 

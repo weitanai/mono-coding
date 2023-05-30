@@ -1,10 +1,10 @@
-import { Injectable, Inject } from '@nestjs/common';
-import { NestUsers as User } from './nests.entity';
+import { Injectable, Inject } from "@nestjs/common";
+import { NestUsers as User } from "./nests.entity";
 
 @Injectable()
 export class UserService {
   constructor(
-    @Inject('USER_REPOSITORY')
+    @Inject("USER_REPOSITORY")
     private userRepository: typeof User
   ) {}
 
@@ -20,7 +20,7 @@ export class UserService {
       where.age = age;
     }
     const res = await this.userRepository.findAll<User>({
-        attributes: ['id', 'name', 'age', 'avatar'],
+        attributes: ["id", "name", "age", "avatar"],
         offset,
         where,
         limit

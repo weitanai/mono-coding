@@ -1,10 +1,10 @@
 const arr = new Array(1);
-console.log(arr.length, Array.from('hello'));
+console.log(arr.length, Array.from("hello"));
 
 const  arrowF = ()=> {
     console.log(this, arguments[0]);
-}
-arrowF(1)
+};
+arrowF(1);
 
 function cus(a, b, c){
     console.log( a, restA );
@@ -18,7 +18,7 @@ void (async function () {
     // Write your code here
     while ((line = await readline())) {
         let tokens = line.split(" ");
-        console.log('tokens',tokens);
+        console.log("tokens",tokens);
     }
 })();
 

@@ -2,7 +2,7 @@ chrome.runtime.onInstalled.addListener(() => {
     chrome.action.setBadgeText({
         text: "OFF",
     }, function () {
-        console.log('---chrome ex-----')
+        console.log("---chrome ex-----");
     });
 });
 
@@ -14,7 +14,7 @@ chrome.tabs.onActivated.addListener(function (tab) {
             files: ["scripts/content.js"],
         }
     ).then((result) => {
-        console.log('script injected in all frames', result);
+        console.log("script injected in all frames", result);
     }).catch((err) => {
         console.err(err);
     });

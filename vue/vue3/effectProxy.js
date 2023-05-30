@@ -1,8 +1,8 @@
 const data = {
-    foo: 'foo',
-    bar: 'bar',
+    foo: "foo",
+    bar: "bar",
     age: 1
-}
+};
 
 const bucket = new WeakMap();
 let activeEffect;
@@ -35,20 +35,20 @@ export function ProxyData(data) {
             }
             const effect = depsMap.get(key);
     
-            const effectsToRun = new Set() // 新增
+            const effectsToRun = new Set(); // 新增
     
             effect && effect.forEach( effectFn => {
                 if (effectFn !== activeEffect) {
                     effectsToRun.add(activeEffect);
                 }
-            })
+            });
             effectsToRun.forEach(effectFn => {
                 if (effectFn && effectFn.options.scheduler) {
                     effectFn.options.scheduler(effectFn);
                 } else {
                     effectFn && effectFn();
                 }
-            }) 
+            }); 
     
             return true;
         }
@@ -57,7 +57,7 @@ export function ProxyData(data) {
 export const proxyData = ProxyData(data);
 
 
-``
+"";
 export function effect(fn, options={}) {
     const effectFn = ()=>{
         cleanUp(effectFn);
@@ -67,7 +67,7 @@ export function effect(fn, options={}) {
         effectStack.pop();
         activeEffect = effectStack[effectStack.length - 1];
         return res;
-    }
+    };
     effectFn.options = options;
     effectFn.deps = [];
     if (!options.lazy) {

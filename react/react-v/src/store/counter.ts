@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: "counter",
   initialState: {
     value: 0
   },
@@ -11,18 +11,18 @@ export const counterSlice = createSlice({
       // 并不是真正的改变状态值，因为它使用了 Immer 库
       // 可以检测到“草稿状态“ 的变化并且基于这些变化生产全新的
       // 不可变的状态
-      state.value += 1
+      state.value += 1;
     },
     decrement: state => {
-      state.value -= 1
+      state.value -= 1;
     },
     incrementByAmount: (state, { payload }) => {
-      state.value += payload.value
+      state.value += payload.value;
     }
   }
-})
+});
 
 // 每个 case reducer 函数会生成对应的 Action creators
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
-export default counterSlice.reducer
+export default counterSlice.reducer;

@@ -1,19 +1,19 @@
 const categoryList =  [{
-    name: '首页',
+    name: "首页",
     id: 0,
 },
 {
-    name: 'js',
+    name: "js",
     id: 1
 },
 {
-    name: 'html',
+    name: "html",
     id: 2
 },
 {
-    name: 'css',
+    name: "css",
     id: 3
 }];
 
 
-export {categoryList}
+export {categoryList};

@@ -1,12 +1,12 @@
-import { TabGroup } from '#/ui/tab-group'
-import React from 'react'
+import { TabGroup } from "#/ui/tab-group";
+import React from "react";
 
 export const metadata = {
-  title: 'Dynamic Data',
-}
+  title: "Dynamic Data",
+};
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const ids = [{ id: '1' }, { id: '2' }, { id: '3' }]
+  const ids = [{ id: "1" }, { id: "2" }, { id: "3" }];
 
   return (
     <div className="space-y-9">
@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         path="/ssr"
         items={[
           {
-            text: 'Home',
+            text: "Home",
           },
           ...ids.map((x) => ({
             text: `Post ${x.id}`,
@@ -25,5 +25,5 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <div>{children}</div>
     </div>
-  )
+  );
 }

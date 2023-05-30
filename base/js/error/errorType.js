@@ -14,7 +14,7 @@ function TestType(obj) {
     console.log(obj.name());
 }
 
-TestType('notObj---')
+TestType("notObj---");
 
 /**
  * SyntaxErrorSyntaxError（语法错误）

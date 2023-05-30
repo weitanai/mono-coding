@@ -1,14 +1,14 @@
 import {
   RecommendedProducts,
   RecommendedProductsSkeleton,
-} from '#/app/streaming/_components/recommended-products'
-import { Reviews, ReviewsSkeleton } from '#/app/streaming/_components/reviews'
-import { SingleProduct } from '#/app/streaming/_components/single-product'
-import { getBaseUrl } from '#/lib/getBaseUrl'
-import { Ping } from '#/ui/ping'
-import { Suspense } from 'react'
+} from "#/app/streaming/_components/recommended-products";
+import { Reviews, ReviewsSkeleton } from "#/app/streaming/_components/reviews";
+import { SingleProduct } from "#/app/streaming/_components/single-product";
+import { getBaseUrl } from "#/lib/getBaseUrl";
+import { Ping } from "#/ui/ping";
+import { Suspense } from "react";
 
-export const runtime = 'experimental-edge'
+export const runtime = "experimental-edge";
 
 export default async function Page({ params }: { params: { id: string } }) {
   return (
@@ -41,7 +41,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             {
               // We intentionally disable Next.js Cache to better demo
               // streaming
-              cache: 'no-store',
+              cache: "no-store",
             }
           )}
         />
@@ -57,11 +57,11 @@ export default async function Page({ params }: { params: { id: string } }) {
             {
               // We intentionally disable Next.js Cache to better demo
               // streaming
-              cache: 'no-store',
+              cache: "no-store",
             }
           )}
         />
       </Suspense>
     </div>
-  )
+  );
 }

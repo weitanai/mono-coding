@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export default function UseEffctTest() {
     const [count, setCount] = useState(0);
@@ -6,7 +6,7 @@ export default function UseEffctTest() {
         <div className="effect-box">
             {/* <Counter /> */}
         </div>
-    )
+    );
 }
 
 function Counter() {

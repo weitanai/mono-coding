@@ -8,16 +8,16 @@ interface Person {
 
 type pP = Partial<Person>;
 
-const b: Pick<Person, 'name'> = {
-    name: 'wei',
-}
+const b: Pick<Person, "name"> = {
+    name: "wei",
+};
 
 
 // omit 
 
-const omitName: Omit<Person, 'name'> = {
+const omitName: Omit<Person, "name"> = {
     age: 1,
-}
+};
 
 
 

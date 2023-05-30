@@ -1,5 +1,5 @@
-'use strict';
-const Controller = require('egg').Controller;
+"use strict";
+const Controller = require("egg").Controller;
 
 class UserController extends Controller {
     async create() {
@@ -15,14 +15,14 @@ class UserController extends Controller {
                 }
             });
             if (hasUser) {
-                ctx.JsonResponse.error('you has sign up, please go to login');
+                ctx.JsonResponse.error("you has sign up, please go to login");
             } else {
                 const res = await ctx.model.User.create(body);
                 ctx.JsonResponse.success(res);
             }
         } catch (e) {
-            ctx.JsonResponse.error('Internal', 404);
-            console.error(e)
+            ctx.JsonResponse.error("Internal", 404);
+            console.error(e);
         }
     }
     async getCmpUserList() {
@@ -40,8 +40,8 @@ class UserController extends Controller {
                 where.age = filterOption.age;
             }
             const userList = await ctx.model.User.findAll({
-                attributes: ['name', 'id', 'age', 'avatar', 'order'],
-                order: [['order', 'ASC']],
+                attributes: ["name", "id", "age", "avatar", "order"],
+                order: [["order", "ASC"]],
                 where,
                 limit,
                 offset
@@ -59,7 +59,7 @@ class UserController extends Controller {
         const { ctx } = this;
         try {
             const { page, name, age } = ctx.request.body;
-            console.log(name, age, '------------');
+            console.log(name, age, "------------");
             const limit = 6;
             const offset = (page - 1) * limit;
             const where = {};
@@ -69,9 +69,9 @@ class UserController extends Controller {
             if (age) {
                 where.age = age;
             }
-            console.log(where, '-------where');
+            console.log(where, "-------where");
             const userList = await ctx.model.User.findAll({
-                attributes: ['name', 'id', 'age', 'avatar'],
+                attributes: ["name", "id", "age", "avatar"],
                 where,
                 limit,
                 offset
@@ -104,7 +104,7 @@ class UserController extends Controller {
     async deleteUser() {
         const { ctx } = this;
         try {
-            console.log('destory----')
+            console.log("destory----");
             const { id } = ctx.request.body;
             const res = await ctx.model.User.destroy({
                 where: {

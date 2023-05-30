@@ -1,8 +1,8 @@
-import { NextLogo } from '#/ui/next-logo'
-import { SearchIcon, ShoppingCartIcon } from '@heroicons/react/solid'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+import { NextLogo } from "#/ui/next-logo";
+import { SearchIcon, ShoppingCartIcon } from "@heroicons/react/solid";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -55,5 +55,5 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

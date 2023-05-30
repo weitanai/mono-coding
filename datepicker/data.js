@@ -52,8 +52,8 @@
             });
         }
         return {year, month, retDate};
-        console.log(year, month,'---geda');
-     }
+        console.log(year, month,"---geda");
+     };
 
     window.datepicker = datepicker;
-})()
+})();

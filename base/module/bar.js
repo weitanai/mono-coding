@@ -1,3 +1,3 @@
-const bar = 'bar';
+const bar = "bar";
 export {bar};
 

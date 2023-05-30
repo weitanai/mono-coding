@@ -1,5 +1,5 @@
-import Vuex from 'vuex';
-import {login} from '../api/index';
+import Vuex from "vuex";
+import {login} from "../api/index";
 
 
 

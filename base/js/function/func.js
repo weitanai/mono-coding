@@ -16,9 +16,9 @@ function debounce(fn, delay = 500) {
       }, delay);
     };
   }
-const d = debounce(()=>console.log('debounce'), 300);
+const d = debounce(()=>console.log("debounce"), 300);
 for (let i = 0; i< 10; i++) {
-    d()
+    d();
 }
 
 // 节流
@@ -30,10 +30,10 @@ function throttle (fn, delay) {
             fn.apply(...args);
             pre = now;
         } 
-    }
+    };
 }
 
-const t =  throttle(()=>console.log('throttle,----------'), 300);
+const t =  throttle(()=>console.log("throttle,----------"), 300);
 
 for (let i = 0; i< 10; i++) {
     t();

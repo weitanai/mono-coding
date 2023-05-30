@@ -7,7 +7,7 @@ function syncTry() {
             console.log(notExist);
         }, 100);
     } catch (e) {
-        console.log('-------------------------------- sync console');
+        console.log("-------------------------------- sync console");
         console.log(e);
     }
 }
@@ -17,13 +17,13 @@ function syncTry() {
 
 function handleError() {
     try {
-        json = '{"age": 20}';
+        json = "{\"age\": 20}";
         const parseJsonRes = JSON.parse(json);
         if (!parseJsonRes.name) {
-            throw new Error('Incomplete data: no name');
+            throw new Error("Incomplete data: no name");
         }
     } catch (e) {
-        console.log('handle error', e.message, e);
+        console.log("handle error", e.message, e);
     }
 }
 // handleError();
@@ -34,7 +34,7 @@ function handleError() {
 // 在 catch (err) {...} 块中，我们对 error 对象 err 进行分析。
 // 如果我们不知道如何处理它，那我们就 throw err。
 function readData() {
-    let json = '{ "age": 30 }';
+    let json = "{ \"age\": 30 }";
 
     try {
         // ...
@@ -50,7 +50,7 @@ function readData() {
 readData();
 
 
-message
+message;
 // Error 信息。
 // url
 // 发生 error 的脚本的 URL。

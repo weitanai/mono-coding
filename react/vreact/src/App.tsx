@@ -1,7 +1,7 @@
-import './App.css'
-import TestMemo from './component/dan/TestMemo';
-import SourceUseState from './component/source/SourceUseState';
-import HookAndClass from './component/dan/HookAndClass';
+import "./App.css";
+import TestMemo from "./component/dan/TestMemo";
+import SourceUseState from "./component/source/SourceUseState";
+import HookAndClass from "./component/dan/HookAndClass";
 
 function App() {
   
@@ -10,7 +10,7 @@ function App() {
       <TestMemo />
       <HookAndClass/>
     </div>
-  )
+  );
 }
 
 

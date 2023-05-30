@@ -33,7 +33,7 @@ class VirtualScroll {
     }
     initContainer(){
         this.containerHight = this.$list.clientHeight;
-        this.contentHeight = sumHeight(this._list)
+        this.contentHeight = sumHeight(this._list);
     }
     mapList() {
         this._list = this.list.map((item, i)=> ({
@@ -47,37 +47,37 @@ class VirtualScroll {
         const scrollSpace = this.contentHeight - this.containerHight;
 
         const updateOffset = (e)=> {
-            this.$list.innerHtml = '';
-            console.log('scroll----', this.$list.scrollTop);
+            this.$list.innerHtml = "";
+            console.log("scroll----", this.$list.scrollTop);
             e.preventDefault();
             y = this.$list.scrollTop;
             y = Math.max(y, 0);
             y = Math.min(y, scrollSpace);
             this.virtualOffset = y;
             this.render(y);
-        }
-        this.$list.addEventListener('scroll', updateOffset);
+        };
+        this.$list.addEventListener("scroll", updateOffset);
     }
     render(virtualOffset = 0) {
         const headIndex = findIndexOverHeight(this._list, virtualOffset);
         const tailIndex = findIndexOverHeight(this._list, virtualOffset + this.containerHight + 40);
-        console.log(virtualOffset, this.tailIndex, tailIndex)
+        console.log(virtualOffset, this.tailIndex, tailIndex);
         if ( this.tailIndex === tailIndex && virtualOffset ) return;
         this.tailIndex = tailIndex;
-        console.log('headIndex', headIndex, tailIndex);
+        console.log("headIndex", headIndex, tailIndex);
         this.renderOffset = virtualOffset - sumHeight(this._list, 0, headIndex);
-        this.renderList = this._list.slice(headIndex, tailIndex + 1)
+        this.renderList = this._list.slice(headIndex, tailIndex + 1);
         
-        const $listWp = document.createElement('div');
+        const $listWp = document.createElement("div");
         // $listWp.style.height = this._list.length * this.itemHight + 'px';
         this.renderList.forEach((item)=> {
             const $el = this.itemGen(item);
             $listWp.appendChild($el);
-        })
+        });
         
         $listWp.style.transform = `translateY (- ${this.renderOffset}px)`;
         console.log(this.$list);
-        this.$list.innerHtml = '';
+        this.$list.innerHtml = "";
         this.$list.appendChild($listWp);
     }
 }

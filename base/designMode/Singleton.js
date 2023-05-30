@@ -50,20 +50,20 @@ const getSingle = function(fn){
     let result;
     return function() {
         return result || (result = fn.apply(this, arguments));
-    }
-}
+    };
+};
 
 const createLoginLayer =  function() {
-    const div = document.createElement('div');
-    div.innerHTML = 'i am login popover';
-    div.style.display = 'none';
+    const div = document.createElement("div");
+    div.innerHTML = "i am login popover";
+    div.style.display = "none";
     document.body.appendChild(div);
     return div;
-}
+};
 
 const createSingleLoginLayer = getSingle(createLoginLayer);
 
-document.querySelector('#loginBtn').addEventListener('click', function() {
+document.querySelector("#loginBtn").addEventListener("click", function() {
     const loginLay = createSingleLoginLayer();
-    loginLay.style.display = 'block';
-})
+    loginLay.style.display = "block";
+});

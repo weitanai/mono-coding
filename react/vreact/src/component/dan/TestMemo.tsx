@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import {ReactNode, useState} from "react";
 
 export default function TestMemo() {
     return (
@@ -7,7 +7,7 @@ export default function TestMemo() {
             <ExpensiveTree/>
             </NumberRecord>
         </div>
-    )
+    );
 }
 
 
@@ -18,12 +18,12 @@ function NumberRecord({children}: {children: ReactNode}) {
             <button onClick={()=>setNum(1+num)}>{num}</button>
             {children}
         </div>
-    )
+    );
 }
 
 function ExpensiveTree() {
-    let now = performance.now();
-    console.log('ExpensiveTree render');
+    const now = performance.now();
+    console.log("ExpensiveTree render");
     while (performance.now() - now < 100) {
     }
     return <p>I am a very slow component tree.</p>;

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 export default function Footer({
   reactVersion,
@@ -37,5 +37,5 @@ export default function Footer({
         <div>Next: {nextVersion}</div>
       </div>
     </div>
-  )
+  );
 }

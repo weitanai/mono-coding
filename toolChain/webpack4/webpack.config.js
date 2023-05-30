@@ -1,32 +1,32 @@
-const path = require('path');
-var HelloPlugin = require('./plugin/index.js');
+const path = require("path");
+var HelloPlugin = require("./plugin/index.js");
 
 module.exports = {
     entry: {
-        index: './src/index.js',
+        index: "./src/index.js",
     },
     output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: '/',
+        filename: "[name].bundle.js",
+        path: path.resolve(__dirname, "dist"),
+        publicPath: "/",
     },
-    mode: 'development',
-    devtool: 'inline-source-map',
+    mode: "development",
+    devtool: "inline-source-map",
     devServer: {
-        contentBase: 'dist',
+        contentBase: "dist",
         hot: true,
-        port: '8012'
+        port: "8012"
     },
     module: {
         rules: [
             {
                 test: /\.css$/,
                 use: [
-                    'style-loader',
-                    'css-loader'
+                    "style-loader",
+                    "css-loader"
                 ]
             }
         ]
     },
     plugins: [new HelloPlugin()]
-}
+};

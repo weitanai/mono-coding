@@ -13,6 +13,6 @@
 
 
 const p = new Promise((resolve, reject) =>{
-    reject('hhh')
-})
-p.then().catch((err) =>console.log(err))
+    reject("hhh");
+});
+p.then().catch((err) =>console.log(err));

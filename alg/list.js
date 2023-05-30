@@ -22,18 +22,18 @@ var reverseList = function(head) {
 };
 
 function ListNode(val, next) {
-    this.val = (val===undefined ? 0 : val)
-     this.next = (next===undefined ? null : next)
+    this.val = (val===undefined ? 0 : val);
+     this.next = (next===undefined ? null : next);
 }
 
 const head = new  ListNode(1);
 console.log(head);
 
 const res = reverseList(head);
-console.log(res, 'res');
+console.log(res, "res");
 
 const nullRes = reverseList(null);
-console.log(nullRes, 'res');
+console.log(nullRes, "res");
 
 
 

@@ -1,2 +1,2 @@
-const bar = 'bar';
-export {bar}
+const bar = "bar";
+export {bar};

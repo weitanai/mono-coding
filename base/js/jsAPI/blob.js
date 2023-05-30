@@ -1,1 +1,1 @@
-console.log(new Blob('hello world'))
+console.log(new Blob("hello world"));

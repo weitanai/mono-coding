@@ -4,7 +4,7 @@ export default function CleanCode() {
             <h1>Clean Code</h1>
 
         </div>
-    )
+    );
 }
 
 const Rectangle = {
@@ -44,7 +44,7 @@ const Header = {
     resizeRight(position, size, preserveAspect, dx, dy) {
         // 10 repetitive lines of math
     },
-}
+};
 
 const TextBlock = {
     resizeTopLeft(position, size, preserveAspect, dx, dy) {
@@ -60,7 +60,7 @@ const TextBlock = {
         // 10 repetitive lines of math
     },
 };
-let Directions = {
+const Directions = {
     top() {
       // 5 unique lines of math
     },
@@ -75,14 +75,14 @@ let Directions = {
     },
   };
   
-  let Shapes = {
+  const Shapes = {
     Oval() {
       // 5 unique lines of math
     },
     Rectangle() {
       // 5 unique lines of math
     },
-  }
+  };
   
 
 const {top, bottom, left, right} = Directions;

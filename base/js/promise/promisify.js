@@ -1,5 +1,5 @@
-(function createElement(eleName = 'div') {
+(function createElement(eleName = "div") {
     const ele = document.createElement(eleName);
-    ele.innerHTML = 'promisify';
+    ele.innerHTML = "promisify";
     document.body.appendChild(ele);
-})()
+})();

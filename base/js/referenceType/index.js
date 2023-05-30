@@ -17,7 +17,7 @@ class User {
     }
 
     sayName() {
-        return this.name + 'hhhh'
+        return this.name + "hhhh";
     }
 }
 

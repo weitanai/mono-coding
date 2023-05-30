@@ -54,11 +54,11 @@
 
 
 
-async function sleep(n, name = 'test') {
+async function sleep(n, name = "test") {
     return new Promise(function (resolve, reject) {
-        console.log(n, name, 'start');
+        console.log(n, name, "start");
         setTimeout(() => {
-            console.log(n, name, 'end', '----');
+            console.log(n, name, "end", "----");
             resolve({ n, name });
         }, n * 1000);
     });
@@ -93,13 +93,13 @@ async function asyncPoll({ limit = 2, items }) {
 async function start() {
     await asyncPoll({
         items: [
-            () => sleep(1, 'eat'),
-            () => sleep(3, 'sleep'),
-            () => sleep(5, 'play game'),
-            () => sleep(2, 'learn alg'),
-            () => sleep(4, 'learn vue and react')
+            () => sleep(1, "eat"),
+            () => sleep(3, "sleep"),
+            () => sleep(5, "play game"),
+            () => sleep(2, "learn alg"),
+            () => sleep(4, "learn vue and react")
         ]
-    })
-    console.log('end--- ')
+    });
+    console.log("end--- ");
 }
-start().then(res => console.log('res', res));
+start().then(res => console.log("res", res));

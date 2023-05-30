@@ -84,5 +84,5 @@ var Event = (function () {
         listen: listen,
         trigger: trigger,
         remove: remove
-    }
+    };
 })();

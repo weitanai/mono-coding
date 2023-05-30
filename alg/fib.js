@@ -44,4 +44,4 @@ function arrFib(n) {
 }
 
 const res = arrFib(10);
-console.log(res)
+console.log(res);

@@ -1,9 +1,9 @@
-import { TabGroup } from '#/ui/tab-group'
-import React from 'react'
+import { TabGroup } from "#/ui/tab-group";
+import React from "react";
 
 export const metadata = {
-  title: 'Streaming',
-}
+  title: "Streaming",
+};
 
 export default async function Layout({
   children,
@@ -17,17 +17,17 @@ export default async function Layout({
           path="/streaming"
           items={[
             {
-              text: 'Home',
+              text: "Home",
             },
             {
-              text: 'Edge Runtime',
-              slug: 'edge/product/1',
-              segment: 'edge',
+              text: "Edge Runtime",
+              slug: "edge/product/1",
+              segment: "edge",
             },
             {
-              text: 'Node Runtime',
-              slug: 'node/product/1',
-              segment: 'node',
+              text: "Node Runtime",
+              slug: "node/product/1",
+              segment: "node",
             },
           ]}
         />
@@ -35,5 +35,5 @@ export default async function Layout({
 
       <div>{children}</div>
     </div>
-  )
+  );
 }

@@ -41,29 +41,29 @@
 // use proxy to deep observe an object;
 let person = {
     age: 0,
-    school: 'xdu',
+    school: "xdu",
     arr: [1, 2],
     children: {
-        name: '小明'
+        name: "小明"
     }
-}
+};
 
 let handler = {
     get(obj, key) {
-        console.log('触发了get', key);
-        if (key === 'length') return;
+        console.log("触发了get", key);
+        if (key === "length") return;
         let res = Reflect.get(obj, key);
-        return typeof res === 'object' ? new Proxy(res, handler) : res
+        return typeof res === "object" ? new Proxy(res, handler) : res;
 
     },
     set(obj, key, val) {
-        console.log('触发了set', val)
-        obj[key] = val
-        return true
+        console.log("触发了set", val);
+        obj[key] = val;
+        return true;
     }
-}
+};
 
 
 const proxy = new Proxy(person, handler);
 
-proxy.arr.push(3)
+proxy.arr.push(3);

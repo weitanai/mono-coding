@@ -1,14 +1,14 @@
-const utils = require('./util.js');
-const $ = require('jquery');
+const utils = require("./util.js");
+const $ = require("jquery");
 
 module.exports = {
     myCus: function () {
-        utils.sayName('index.js to call name');
+        utils.sayName("index.js to call name");
     }
-}
+};
 $(function () {
     function testJquery() {
-        utils.sayName(' jquery test');
+        utils.sayName(" jquery test");
     }
-    testJquery()
+    testJquery();
 });

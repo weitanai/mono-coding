@@ -1,6 +1,6 @@
 const strategies = {
     isNonEmpty: function (value, errorMsg) {
-        if (value === '') {
+        if (value === "") {
             return errorMsg;
         }
     },
@@ -14,19 +14,19 @@ const strategies = {
             return errorMsg;
         }
     }
-}
+};
 
 
 var validataFunc = function () {
     var validator = new Validator(); // 创建一个 validator 对象
     /***************添加一些校验规则****************/
-    validator.add(registerForm.userName, 'isNonEmpty', '用户名不能为空');
-    validator.add(registerForm.password, 'minLength:6', '密码长度不能少于 6 位');
-    validator.add(registerForm.phoneNumber, 'isMobile', '手机号码格式不正确');
+    validator.add(registerForm.userName, "isNonEmpty", "用户名不能为空");
+    validator.add(registerForm.password, "minLength:6", "密码长度不能少于 6 位");
+    validator.add(registerForm.phoneNumber, "isMobile", "手机号码格式不正确");
     var errorMsg = validator.start(); // 获得校验结果
     return errorMsg; // 返回校验结果
-}
-var registerForm = document.getElementById('registerForm');
+};
+var registerForm = document.getElementById("registerForm");
 registerForm.onsubmit = function () {
     var errorMsg = validataFunc(); // 如果 errorMsg 有确切的返回值，说明未通过校验
     if (errorMsg) {
@@ -37,18 +37,18 @@ registerForm.onsubmit = function () {
 
 const Validator = function () {
     this.cache = [];
-}
+};
 
 
 Validator.prototype.add = function (dom, rule, errorMsg) {
-    let ary = rule.split(':');
+    let ary = rule.split(":");
     this.cache.push(function () {
         const strategy = ary.shift();
         ary.unshift(dom.value);
         ary.push(errorMsg);
         return strategies[strategy].apply(dom, ary);
-    })
-}
+    });
+};
 
 Validator.prototype.start = function () {
     for (var i = 0, validatorFunc; validatorFunc = this.cache[i++];) {

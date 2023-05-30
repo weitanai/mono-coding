@@ -1,4 +1,4 @@
-const Controller = require('egg').Controller;
+const Controller = require("egg").Controller;
 
 class BgColorController extends Controller {
 

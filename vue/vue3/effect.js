@@ -14,7 +14,7 @@ export function effect(fn, options={}) {
         // effectStack.pop();
         // activeEffect = effectStack[effectStack.length - 1];
         return res;
-    }
+    };
     effectFn.options = options;
     effectFn.deps = [];
     if (!options.lazy) {
@@ -32,7 +32,7 @@ export function cleanUp(effectFn) {
 const data = {
     foo: 1,
     bar: 2,
-}
+};
 const proxyData = new Proxy(data, {
     get(target, key) {
         console.log(target, key, target[key]);
@@ -59,21 +59,21 @@ const proxyData = new Proxy(data, {
         }
         const effect = depsMap.get(key);
 
-        const effectsToRun = new Set() // 新增
+        const effectsToRun = new Set(); // 新增
 
         effect && effect.forEach( effectFn => {
             // if (effectFn !== activeEffect) {
                 effectsToRun.add(activeEffect);
             // }
-        })
-        console.log('before--runing--')
+        });
+        console.log("before--runing--");
         effectsToRun.forEach(effectFn => {
             if (effectFn && effectFn.options.scheduler) {
                 effectFn.options.scheduler(effectFn);
             } else {
                 effectFn && effectFn();
             }
-        }) 
+        }); 
 
         return true;
     }
@@ -95,7 +95,7 @@ function flushJob() {
         jobQueue.forEach(job => job());
     }).finally(() => {
         isFlushing = false;
-    })
+    });
 }
 
 
@@ -122,21 +122,21 @@ function computed(getter) {
     const obj = {
         get value() {
             if (dirty) {
-                console.log('---dirty value', effectFn.options);
+                console.log("---dirty value", effectFn.options);
                 value = effectFn();
                 dirty = false;
             }
             return value;
         }
-    }
+    };
     return obj;
 }
 
-const res = computed(()=>proxyData.foo + proxyData.bar)
+const res = computed(()=>proxyData.foo + proxyData.bar);
 
-console.log(res.value, 'computed res---');
+console.log(res.value, "computed res---");
 
 proxyData.foo++;
 
-console.log(proxyData.foo, 'proxy is work');
-console.log(res.value, 'computed res---');
+console.log(proxyData.foo, "proxy is work");
+console.log(res.value, "computed res---");

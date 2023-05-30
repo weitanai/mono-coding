@@ -14,7 +14,7 @@ Promise.prototype.myRace= function(promise){
             }
         }
     });
-}
+};
 function exch(arr, i, j) {
     const temp = arr[i];
     arr[i] = arr[j];
@@ -41,4 +41,4 @@ function quick3(arr, lo, hi) {
 
 const test= [2, 3, 3, 2, 5,1,4];
 const sortArr = quick3(test, 0, test.length-1);
-console.log('sortArr---', sortArr);
+console.log("sortArr---", sortArr);

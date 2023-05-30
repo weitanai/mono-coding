@@ -1,10 +1,10 @@
 class TestCal{
     constructor() {
-        this.name = 'name';
+        this.name = "name";
     }
     sayNmame() { 
-        console.log(this.name, 'say name')
+        console.log(this.name, "say name");
     }
 }
 const testCal = new TestCal();
-console.log(testCal.sayNmame())
+console.log(testCal.sayNmame());

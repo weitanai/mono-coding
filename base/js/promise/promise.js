@@ -55,22 +55,22 @@ function proError() {
 
     try {
         // 工作
-        console.log('workin g---');
+        console.log("workin g---");
         return 1;
     } catch (err) {
         // 处理 error
     } finally {
         // 清理工作空间
-        console.log('finnaly')
+        console.log("finnaly");
     }
 }
 
 
 
 let urls = [
-    'https://api.github.com/users/iliakan',
-    'https://api.github.com/users/remy',
-    'https://noshchurl'
+    "https://api.github.com/users/iliakan",
+    "https://api.github.com/users/remy",
+    "https://noshchurl"
 ];
 
 //   // 将每个 url 映射（map）到 fetch 的 promise 中
@@ -86,7 +86,7 @@ let urls = [
 
 
 function loadScript(src, callback) {
-    let script = document.createElement('script');
+    let script = document.createElement("script");
     script.src = src;
 
     script.onload = () => callback(null, script);
@@ -104,6 +104,6 @@ let loadProsise = function (src, callback) {
             } else {
                 resolve(script);
             }
-        })
-    })
-}
+        });
+    });
+};

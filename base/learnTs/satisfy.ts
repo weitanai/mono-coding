@@ -17,14 +17,14 @@ interface User {
 
 const badUser: User = {
     id: 1,
-    name: 'dog',
-    image: 'hello'
+    name: "dog",
+    image: "hello"
 } satisfies User;
 
 
 // good User
 const cusImage : CusImageData = {
-    data: 'image data',
+    data: "image data",
     height: 100,
     width: 100
 } ;
@@ -33,16 +33,16 @@ const cusImage : CusImageData = {
 
 const goodUser = {
     id: 2,
-    name: 'good user',
+    name: "good user",
     image: cusImage
-} satisfies User
+} satisfies User;
 
 
 //Record
 
-type  ColorS = 'blue' | 'yellow';
+type  ColorS = "blue" | "yellow";
 
 const data: Record<ColorS, string>= {
-    blue: 'blue', 
-    yellow: 'yellow',
-}
+    blue: "blue", 
+    yellow: "yellow",
+};

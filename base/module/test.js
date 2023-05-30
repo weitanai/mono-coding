@@ -9,9 +9,9 @@
 // }
 
 
-const allFiles  = ['bar.js', 'foo.js'];
+const allFiles  = ["bar.js", "foo.js"];
 const res = allFiles.map((item)=> {
     return `export * from './${item}'`;
-})
+});
 
-export * from './bar.js';
+export * from "./bar.js";

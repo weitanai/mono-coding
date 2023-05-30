@@ -1,14 +1,14 @@
-import { ref, reactive, onMounted, onUnmounted, toRefs } from 'vue'
+import { ref, reactive, onMounted, onUnmounted, toRefs } from "vue";
 
 export default function useMouse() {
     const point = reactive({ x: 0, y: 0 });
 
     function update(event) {
-        point.x = event.pageX
-        point.y = event.pageY
+        point.x = event.pageX;
+        point.y = event.pageY;
     }
-    onMounted(() => window.addEventListener('mousemove', update))
-    onUnmounted(() => window.removeEventListener('mousemove', update))
+    onMounted(() => window.addEventListener("mousemove", update));
+    onUnmounted(() => window.removeEventListener("mousemove", update));
     return point;
 }
 

@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 class Person {
     constructor(name, age) {
       this.name = name;

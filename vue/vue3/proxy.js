@@ -1,6 +1,6 @@
 const data = {
-    text: 'hello vue3'
-}
+    text: "hello vue3"
+};
 
 const set = new Set();
 
@@ -27,7 +27,7 @@ function effect(fn) {
 
 effect(() => {
     document.body.innerHTML = prxoyData.text;
-    console.log('render html');
+    console.log("render html");
 });
 
-prxoyData.notExist = 'new vue3'
+prxoyData.notExist = "new vue3";

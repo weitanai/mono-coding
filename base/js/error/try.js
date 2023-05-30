@@ -41,12 +41,12 @@ async function testAsyncTry() {
 	try {
 		const err = await new Promise((resolve, reject) => {
 			setTimeout(() => {
-				console.log(notExistdata)
+				console.log(notExistdata);
 			}, 1000);
-		})
+		});
 	} catch (error) {
-		console.log(error, '--- async error')
+		console.log(error, "--- async error");
 	}
 }
 
-testAsyncTry().then(console.log).catch(()=>console.error('catch error'))
+testAsyncTry().then(console.log).catch(()=>console.error("catch error"));

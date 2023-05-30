@@ -13,7 +13,7 @@ var getCurrItem = function () {
         next: next,
         isDone: isDone,
         getCurrItem: getCurrItem
-    }
+    };
 };
 // use in 
 // ie browser iterate array like fn, to get support fn;
