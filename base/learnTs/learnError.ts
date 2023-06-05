@@ -8,7 +8,7 @@ const person: Person = {
 const  getPeron: getPersonName = (person: Person) => {
     console.log(person.age);
 };
-getPeron(person);
+getPeron('hello');
 
 // type  getArrayType<T> = T extends (infer U)[] ? U : T;
 
@@ -38,4 +38,3 @@ getPeron(person);
 //     const pathname = demo ? `/${demo}/`: '/';
 //     return
 // }
-

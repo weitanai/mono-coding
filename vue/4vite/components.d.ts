@@ -10,12 +10,19 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Cmp: typeof import('./src/components/Cmp.vue')['default']
+    copy: typeof import('./src/components/Cmp copy.vue')['default']
     DefineModel: typeof import('./src/components/v3.3/DefineModel.vue')['default']
     ErrorBounday: typeof import('./src/components/error/ErrorBounday.vue')['default']
     ErrorCmp: typeof import('./src/components/error/ErrorCmp.vue')['default']
     Genetic: typeof import('./src/components/v3.3/Genetic.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
-    Index: typeof import('./src/components/V2/Index.vue')['default']
+    Index: typeof import('./src/components/Index.vue')['default']
+    Login: typeof import('./src/components/sign/Login.vue')['default']
+    MagicLink: typeof import('./src/components/sign/MagicLink.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
+    SignUp: typeof import('./src/components/sign/SignUp.vue')['default']
+    Supe: typeof import('./src/components/supe/index.vue')['default']
     VDefaultFallback: typeof import('./src/components/error/VDefaultFallback.vue')['default']
   }
 }

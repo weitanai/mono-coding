@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { ref, onUnmounted, onMounted } from "vue";
 
 
 const useStore = defineStore("storeId", {
@@ -12,6 +11,8 @@ const useStore = defineStore("storeId", {
         { id: 1, todo: "read book", state: false },
         { id: 2, todo: "photo", state: true },
       ],
+      countryList: [],
+      userInfo: {},
     };
   },
   getters: {
@@ -20,20 +21,29 @@ const useStore = defineStore("storeId", {
     },
     doList(): any[] {
       return this.todos.filter(item => item.state);
-    }
+    },
+    getCountList(): any[]{
+      return this.countryList;
+    },
+    getUserInfo(): any{
+      return this.userInfo;
+    },
   },
   actions: {
-    changeVaue(id) {
+    changeVaue(id: number) {
       const todo = this.todos.find((item)=> item.id = id);
       if(todo){
         todo.state = !todo.state;
       }
     },
-    addTodoItem(item){
+    addTodoItem(item: any){
       this.todos.push(item);
     },
-    delTodoItem(id) {
+    delTodoItem(id: number) {
       this.todos = this.todos.filter(item => item.id !== id);
+    },
+    setUserInfo(userInfo: any){
+      this.userInfo = userInfo;
     }
   }
 });

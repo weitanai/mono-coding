@@ -7,13 +7,9 @@ import Components from "unplugin-vue-components/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue({
-    script: {
-      defineModel: true
-    }
-  }), AutoImport(), Components(), UnoCSS()],
+  plugins: [vue(), AutoImport(), Components(), UnoCSS()],
   server: {
-    port: 8444,
+    port: 3000,
     open: true,
   },
   build: {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import useStore from '../store/index';
+import useStore from '../../store/index';
 const store = useStore();
 let list = ref(store.todos);
 
