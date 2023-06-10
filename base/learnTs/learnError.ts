@@ -1,3 +1,8 @@
+import  sum from './types/type';
+const S:  typeof sum = (a: number, b: number) => a + b;
+S.operator = '+';
+console.log(S(1, 2));
+
 import {Person, getPersonName} from "./types/index";
 
 const person: Person = { 
@@ -8,7 +13,6 @@ const person: Person = {
 const  getPeron: getPersonName = (person: Person) => {
     console.log(person.age);
 };
-getPeron('hello');
 
 // type  getArrayType<T> = T extends (infer U)[] ? U : T;
 
@@ -38,3 +42,7 @@ getPeron('hello');
 //     const pathname = demo ? `/${demo}/`: '/';
 //     return
 // }
+
+
+
+const arrr = [1, 2, 3] as const;
