@@ -8,3 +8,12 @@ class TestCal{
 }
 const testCal = new TestCal();
 console.log(testCal.sayNmame());
+
+function isBig(){
+    var big = true;
+    if(big){ 
+        return 'big'
+    }
+}
+
+console.log(isBig())

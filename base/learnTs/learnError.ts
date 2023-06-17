@@ -45,32 +45,58 @@ const  getPeron: getPersonName = (person: Person) => {
 
 
 
-class Animal {
-    name: string;
-    constructor(name: string) {
-      this.name = name;
-    }
-  }
+// class Animal {
+//     name: string;
+//     constructor(name: string) {
+//       this.name = name;
+//     }
+//   }
   
-  class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-      super(name);
-      this.breed = breed;
-    }
-  }
+//   class Dog extends Animal {
+//     breed: string;
+//     constructor(name: string, breed: string) {
+//       super(name);
+//       this.breed = breed;
+//     }
+//   }
   
-  function isDog(animal: Animal): animal is Dog {
-    return (<Dog>animal).breed !== undefined;
-  }
+//   function isDog(animal: Animal): animal is Dog {
+//     return (<Dog>animal).breed !== undefined;
+//   }
   
-  function processAnimal(animal: Animal) {
-    if (isDog(animal)) {
-      // 在这个块中，animal 被缩小为 Dog 类型
-      console.log(animal.breed);
-    } else {
-      // 在这个块中，animal 仍然是 Animal 类型
-      console.log(animal.name);
-    }
-  }
-  
+//   function processAnimal(animal: Animal) {
+//     if (isDog(animal)) {
+//       // 在这个块中，animal 被缩小为 Dog 类型
+//       console.log(animal.breed);
+//     } else {
+//       // 在这个块中，animal 仍然是 Animal 类型
+//       console.log(animal.name);
+//     }
+//   }
+interface Fizz {
+  id: number;
+  fizz: string;
+}
+
+interface Buzz {
+  id: number;
+  buzz: string;
+}
+
+function fn(arr : Fizz[]  | Buzz[] ) {
+
+  return arr.filter(item=> item.id <5)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
