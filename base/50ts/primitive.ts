@@ -1,0 +1,1 @@
+const  tuple = ['hello', 12] as const;
