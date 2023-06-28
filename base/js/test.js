@@ -15,5 +15,3 @@ function isBig(){
         return 'big'
     }
 }
-
-console.log(isBig())
