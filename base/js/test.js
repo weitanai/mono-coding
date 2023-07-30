@@ -15,3 +15,9 @@ function isBig(){
         return 'big'
     }
 }
+
+function hello(arg){
+    console.log(arg)
+}
+
+hello('every one');

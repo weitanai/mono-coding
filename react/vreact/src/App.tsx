@@ -1,7 +1,7 @@
 import "./App.css";
 import TestMemo from "./component/dan/TestMemo";
-import SourceUseState from "./component/source/SourceUseState";
 import HookAndClass from "./component/dan/HookAndClass";
+import TouchSelect from "./component/touch";
 
 function App() {
   
@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <TestMemo />
       <HookAndClass/>
+      <TouchSelect />
     </div>
   );
 }
