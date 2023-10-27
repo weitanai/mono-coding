@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .parent {
+            display: flex;
+        }
+
+        .box {
+            padding: 20px;
+            border: 1px solid black;
+            background-color: lightblue;
+            margin: 5px;
+            position: relative;
+            transition: transform 0.5s;
+        }
+
+        @keyframes grow {
+            0% {
+                transform: scale(1);
+            }
+
+            80% {
+                transform: scale(1.5);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .box.grow {
+            animation: grow 0.5s forwards;
+        }
+    </style>
+    <div class="parent">
+        <div class="box">Child 1</div>
+        <div id="secondChild" class="box">Child 2</div>
+        <div class="box">Child 3</div>
+    </div>
+    <script>
+        const secondChild = document.getElementById('secondChild');
+
+        let pressTimer = null;
+
+        secondChild.addEventListener('mousedown', (e) => {
+            pressTimer = setTimeout(() => {
+                secondChild.classList.add('grow');
+            }, 1000); // 长按 1000ms（1秒）触发
+        });
+
+        secondChild.addEventListener('mouseup', () => {
+            clearTimeout(pressTimer);
+            secondChild.classList.remove('grow');
+        });
+
+        secondChild.addEventListener('mouseleave', () => {
+            clearTimeout(pressTimer);
+            secondChild.classList.remove('grow');
+        });
+
+        secondChild.addEventListener('animationend', () => {
+            secondChild.classList.remove('grow');
+        });
+    </script>
+
+</body>
+
+</html>
