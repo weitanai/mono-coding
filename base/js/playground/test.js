@@ -1,47 +1,21 @@
 'use strict';
 
-// const syb = Symbol(1);
+const syb = Symbol(1);
 
-// const obj = {
-//     arr:  [1, 2, 3],
-//     sym: syb,
-//     str: 'hello',
-//     de: {
-//         first: 'first',
-//         arr: [1, 3,6],
-//         objD: {
-//             deepK: 'deep key',
-//         }
-//     }
-// }
-
-// const dep = Object.assign({}, obj);
-// console.log(dep);
-// obj.de.first= 'second';
-// console.log(dep);
-// console.log(obj)
-// const ps = JSON.stringify(obj);
-// console.log(ps, 'before --');
-
-// console.log(JSON.parse(ps));
-
-const deepCopy = function (obj) {
-    if (typeof obj !== 'object' || Array.isArray(obj)) {
-        return obj;
-    }
-    const resObj = {};
-    for (let key of Object.keys(obj)) {
-        if (typeof obj[key] !== 'object') {
-            resObj[key] = obj[key];
-        } else {
-            resObj[key] = deepCopy(obj[key]);
+const obj = {
+    arr:  [1, 2, 3],
+    sym: syb,
+    str: 'hello',
+    de: {
+        first: 'first',
+        arr: [1, 3,6],
+        objD: {
+            deepK: 'deep key',
         }
     }
-    return resObj;
 }
 
-const res = deepCopy(obj);
-console.log(res);
+
 
 
 
@@ -125,20 +99,6 @@ console.log(res);
 // //     hello
 // // }
 
-// write instanceof
-function new_instance_of(leftVaule, rightVaule) {
-    let rightProto = rightVaule.prototype; // 取右表达式的 prototype 值
-    leftVaule = leftVaule.__proto__; // 取左表达式的__proto__值
-    while (true) {
-        if (leftVaule === null) {
-            return false;
-        }
-        if (leftVaule === rightProto) {
-            return true;
-        }
-        leftVaule = leftVaule.__proto__
-    }
-}
 
 // const regValue = /rotate\((.*)deg\)/
 
@@ -171,18 +131,7 @@ function new_instance_of(leftVaule, rightVaule) {
 // use strict;
 
 
-function curry(fn) {
-    return function curried(...args) {
-        console.log(fn.length, '----');
-        if(args.length >= fn.fflength) {
-            return fn.apply(this, args);
-        } else {
-            return function(...arg2) {
-                return curried.apply(this, args.concat(arg2));
-            }
-        }
-    }
-}
+
 
 // function sum1(a , b, c) {
 //     return  a+b+c;
@@ -246,5 +195,3 @@ function strip(num, precision = 12) {
     return +parseFloat(num.toPrecision(precision));
 }
 
-
-function n

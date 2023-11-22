@@ -1,5 +1,5 @@
 // ToPrimitive function
-const obj = value => Number(value.valueOf().toString());
+export const toPrimitive = value => (value.valueOf().toString());
 
 //  how to use this function
 

@@ -1,33 +1,33 @@
-// function privateValue(value) {
-//     let localValue = value;
-//     const obj = {
-//         get value() {
-//             console.log(this)
-//             return localValue;
-//         },
-//         set value(value) {
-//             localValue  = value;
-//         }
-//     }
-//     return obj;
-// }
+function privateValue(value) {
+    let localValue = value;
+    const obj = {
+        get value() {
+            console.log(this)
+            return localValue;
+        },
+        set value(value) {
+            localValue  = value;
+        }
+    }
+    return obj;
+}
 
-// const local = privateValue('how to use private');
+const local = privateValue('how to use private');
 
-// console.log(local.value);
+console.log(local.value);
 
-// // not suit for arrow function;
+// not suit for arrow function;
 
 
 
-// const notSuitArrowObj = {
-//     local: 'not suit for arrow function',
-//     getValue: function() {
-//         console.log('getvalue---', this.local, this);
-//     }
-// }
+const notSuitArrowObj = {
+    local: 'not suit for arrow function',
+    getValue: function() {
+        console.log('getvalue---', this.local, this);
+    }
+}
 
-// notSuitArrowObj.getValue();
+notSuitArrowObj.getValue();
 
 Function.prototype.MyCall = function (ctx) {
     const context = ctx || window || global;
