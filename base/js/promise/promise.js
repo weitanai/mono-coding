@@ -7,29 +7,29 @@
 //     reject(new Error('hhh'))
 // }).catch(err=>console.log(err))
 
-// new Promise((resolve, reject) => {
+new Promise((resolve, reject) => {
 
-//     throw new Error("Whoops!");
+    throw new Error("Whoops!");
 
-//   }).catch(function(error) { // (*)
+  }).catch(function(error) { // (*)
 
-//     if (error instanceof URIError) {
-//       // 处理它
-//     } else {
-//       console.log("Can't handle such error");
+    if (error instanceof URIError) {
+      // 处理它
+    } else {
+      console.log("Can't handle such error");
 
-//       throw error; // 再次抛出此 error 或另外一个 error，执行将跳转至下一个 catch
-//     }
+      throw error; // 再次抛出此 error 或另外一个 error，执行将跳转至下一个 catch
+    }
 
-//   }).then(function() {
-//     console.log("--then")
-//     /* 不在这里运行 */
-//   }).catch(error => { // (**)
+  }).then(function() {
+    console.log("--then")
+    /* 不在这里运行 */
+  }).catch(error => { // (**)
 
-//     console.log(`The unknown error has occurred: ${error}`);
-//     // 不会返回任何内容 => 执行正常进行
+    console.log(`The unknown error has occurred: ${error}`);
+    // 不会返回任何内容 => 执行正常进行
 
-//   });
+  });
 
 
 //   new Promise(function(resolve, reject) {

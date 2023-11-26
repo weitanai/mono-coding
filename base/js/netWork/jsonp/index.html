@@ -7,16 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        function handleResponse(response) {
-            console.log(`
-                You're at IP address ${response.ip}, which is in
-                ${response.city}, ${response.region_name}`);
+        function fetchData(callback) {
+            var script = document.createElement('script');
+            script.src = 'https://baidu.com/data?callback=' + callback;
+            document.body.appendChild(script);
         }
-        let script = document.createElement("script");
-        script.src = "http://freegeoip.net/json/?callback=handleResponse";
-        document.body.insertBefore(script, document.body.firstChild);        
+
+        function handleData(data) {
+            console.log("call back")
+            // 处理获取到的数据
+        }
+
+        fetchData('handleData');
+
     </script>
 </body>
 

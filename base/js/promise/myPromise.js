@@ -46,7 +46,7 @@ class myPromise {
         onRejected = typeof onRejected === "function" ? onRejected : reason => { throw reason; };
         // ??why in myPromise this is undefined, arrow function can resolve it
         console.log("----------- coming then -----------");
-        var thenPromise = new myPromise(  (resolve, reject)=> {
+        var thenPromise = new myPromise((resolve, reject) => {
             const resolvePromise = cb => {
                 try {
                     // 这步处理掉 第一次调用 fullfill or rejected
@@ -103,8 +103,8 @@ class myPromise {
                 }
             };
             promises.forEach((p, index) => {
-                if ( p instanceof myPromise) {
-                    p.then(res=> {
+                if (p instanceof myPromise) {
+                    p.then(res => {
                         addData(index, res);
                     }, err => reject(err));
                 } else {
@@ -117,8 +117,8 @@ class myPromise {
     static race(promises) {
         return new myPromise((resolve, reject) => {
             promises.forEach((p) => {
-                if ( p instanceof myPromise) {
-                    p.then(res=> resolve(res), err => reject(err));
+                if (p instanceof myPromise) {
+                    p.then(res => resolve(res), err => reject(err));
                 } else {
                     resolve(p);
                 }
@@ -135,8 +135,8 @@ class myPromise {
 //   }).then(res => {
 //     console.log(res * 2, res);
 //   }, err => 3 * err)
-    // .then(res => console.log('成功', res), err => console.log('失败', err))
-  
+// .then(res => console.log('成功', res), err => console.log('失败', err))
+
 // const p2 = new myPromise((resolve, reject) => {
 //     // 解决方案， 事件队列,
 //     resolve(2);
@@ -147,19 +147,18 @@ class myPromise {
 
 const module1 = {
     x: 42,
-    getX: function() {
-      return this.x;
+    getX: function () {
+        return this.x;
     }
-  };
-  const b = {
+};
+const b = {
     x: "bbb"
-  };
-  
-  const unboundGetX = module1.getX;
-  console.log(unboundGetX()); // The function gets invoked at the global scope
-  // Expected output: undefined
-  
-  const boundGetX = unboundGetX.bind(module1);
-  console.log(boundGetX());
-  // Expected output: 42
-  
+};
+
+const unboundGetX = module1.getX;
+console.log(unboundGetX()); // The function gets invoked at the global scope
+// Expected output: undefined
+
+const boundGetX = unboundGetX.bind(module1);
+console.log(boundGetX());
+// Expected output: 42
