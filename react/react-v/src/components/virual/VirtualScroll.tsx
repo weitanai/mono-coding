@@ -12,7 +12,7 @@ function VirtualScroll({ list, itemHeight }: VirtualScrollProps) {
     const [count, setCount] = useState(0);
     const [top, setTop] = useState(0);
     const scrollRef = useRef(null);
-    const contentRef = useRef(null);v;
+    const contentRef = useRef(null);
 
     const totalHeight = useMemo(() => {
         return itemHeight * list.length;

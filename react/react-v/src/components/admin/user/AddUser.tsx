@@ -14,8 +14,8 @@ function AddUser() {
     function handleName(e) {
         setName(e.target.value);
     }
-    function handleAge(e: InputEvent) {
-      setAge(e.target.value);
+    function handleAge(e: any) {
+      setAge(e?.target?.value);
     }
     function blobToBase64(blob: Blob) {
         return new Promise((resolve) => {
@@ -24,8 +24,8 @@ function AddUser() {
             reader.onloadend = () => resolve(reader.result);
         });
     }
-    function handleImg(e: Event) {
-        const blob = e.target.files[0];
+    function handleImg(e: any) {
+        const blob = e?.target?.files[0];
         blobToBase64(blob).then(res => setAvatar(res)).catch(err => console.error(err));
 
     }

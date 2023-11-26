@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div class="container" id="container">
-        <div class="child">child</div>
+        <!-- <div class="child">child</div> -->
     </div>
     <script>
-        const ele =  document.querySelector('#container');
+        const ele = document.querySelector('#container');
         console.log(ele);
         const offsetWidth = ele.offsetWidth;
         console.log('offsetWidth----', offsetWidth);
@@ -20,16 +22,30 @@
         const offsetTop = ele.offsetTop;
         console.log('offsetTop----', offsetTop);
 
+        ele.addEventListener('scroll', () => {
+            const childEle = document.querySelector('.child');
+            console.log(childEle.scrollTop, childEle, ele.scrollTop, 'scrolltop');
+        })
     </script>
     <style>
-        .container { 
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
             height: 200px;
             width: 200px;
             border: 5px solid #fdf;
-            margin-left: 20px;
-            margin-top: 20px;
             background: yellow;
+            overflow: auto;
+        }
+
+        .child {
+            height: 1000px;
+            background: red;
         }
     </style>
 </body>
+
 </html>

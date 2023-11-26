@@ -1,5 +1,5 @@
 import "./UserList.css";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getUserList } from "../../../api/index";
 import { Table, Form, Button, InputNumber, Input } from "antd";
 import { modifyUser, deleteUser } from "../../../api/index";
@@ -201,6 +201,7 @@ function UserList() {
     );
 }
 interface Item {
+    id?: any;
     key: string;
     name: string;
     age: number;

@@ -1,10 +1,10 @@
-import {createContext, useReducer} from "react";
+import { createContext, useReducer } from "react";
 
-export const GlobalContext = createContext({});
+export const GlobalContext = createContext({userInfo: {}});
 
 export const SET_USER_INFO = "SET_USER_INFO";
 
-const reducer = (state: any, action: any)=> {
+const reducer = (state: any, action: any) => {
     switch (action.type) {
         case SET_USER_INFO:
             return action.userInfo;
@@ -17,12 +17,12 @@ const reducer = (state: any, action: any)=> {
 function UserInfoContext(props: any) {
     const [userInfo, dispatchUserInfo] = useReducer(reducer, "");
     return (
-      <div>
-            <GlobalContext.Provider value={{userInfo, dispatchUserInfo}}>
+        <div>
+            <GlobalContext.Provider value={{ userInfo, dispatchUserInfo }}>
                 {props.children}
             </GlobalContext.Provider>
-      </div>
+        </div>
     );
-  }
-  
-  export default UserInfoContext;
+}
+
+export default UserInfoContext;
